@@ -1,0 +1,18 @@
+{
+    "name": "Inputs",
+    "maps": [
+        {
+            "name": "InGame",
+            "id": "2c47bf1e-40ba-48cd-9d4d-3473dbd8dc13",
+            "actions": [],
+            "bindings": []
+        },
+        {
+            "name": "UI",
+            "id": "96842ec9-d4bf-4b8e-81b1-f36312bd6ea6",
+            "actions": [],
+            "bindings": []
+        }
+    ],
+    "controlSchemes": []
+}
