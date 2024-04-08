@@ -530,8 +530,10 @@ GameObject:
   - component: {fileID: 631163151}
   - component: {fileID: 631163150}
   - component: {fileID: 631163149}
+  - component: {fileID: 631163153}
+  - component: {fileID: 631163154}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Test_Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -623,6 +625,94 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &631163153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631163148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69148e91f1b16b408442028203eb5a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput: {fileID: 631163154}
+  leftButton:
+    m_Name: Left Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c3197724-0f8a-41a2-baf0-92a81092372b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  rightButton:
+    m_Name: Right Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1e7ec5b4-e058-4f89-8c17-5913157a94be
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  spaceAction:
+    m_Name: Space
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 43a0173d-edbd-4ce9-8970-d3bd0046d62f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  anyKeyAction:
+    m_Name: Any Key
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8b62956e-d24a-47a6-8e1b-b9e4403725f5
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  pauseAction:
+    m_Name: Pause
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: aae2bdf7-112f-435a-97e9-f127382e59ac
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+--- !u!114 &631163154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631163148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: d248c5e5d591ffd48888a66d2d092a27, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: InGame
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &1243424400
 PrefabInstance:
   m_ObjectHideFlags: 0

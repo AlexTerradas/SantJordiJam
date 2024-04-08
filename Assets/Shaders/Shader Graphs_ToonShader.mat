@@ -48,7 +48,7 @@ Material:
     - _ShadeGradient: 0.4
     - _Speed: 1.5
     m_Colors:
-    - _MainColor: {r: 0, g: 0.8275554, b: 1, a: 0}
+    - _MainColor: {r: 0, g: 0.6179762, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &579134638327585
 MonoBehaviour:

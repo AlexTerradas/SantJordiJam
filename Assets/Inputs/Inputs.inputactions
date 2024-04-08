@@ -4,8 +4,112 @@
         {
             "name": "InGame",
             "id": "2c47bf1e-40ba-48cd-9d4d-3473dbd8dc13",
-            "actions": [],
-            "bindings": []
+            "actions": [
+                {
+                    "name": "Movement",
+                    "type": "Value",
+                    "id": "9bfa9ebe-f5ee-4149-9518-bba29694dc5c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "SpaceKey",
+                    "type": "Button",
+                    "id": "b556ebc2-049b-472a-93ff-06220ab8336c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GKey",
+                    "type": "Button",
+                    "id": "f2858dda-1424-47bb-ba3f-d7ef2431189f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PauseKey",
+                    "type": "Button",
+                    "id": "967d72a4-7680-4572-9dd3-a77f2bdb1a0b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "Arrow_Keys",
+                    "id": "c5020821-81f6-42c9-b28e-ee2ac80a03a7",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "53942b81-46e7-4a93-a4ca-bd10ec087dab",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "8f81e56b-533a-4b08-98ea-2197f2dd4e34",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "6294b03d-ef36-47cb-936b-74e2b1a88f8a",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpaceKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2be5c9e8-1c00-41a4-a31b-53aff91c0b43",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fb54ae2d-565f-40c8-ba23-48625c4aa4b0",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PauseKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         },
         {
             "name": "UI",
