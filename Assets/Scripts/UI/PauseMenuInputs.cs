@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class PauseMenuInputs : MonoBehaviour
 {
     private PlayerInput playerInput;
-    [SerializeField] private SettingsPauseMenu pauseMenu;
+    [SerializeField] private GameObject pauseMenu;
 
     private void Awake()
     {
@@ -16,18 +16,5 @@ public class PauseMenuInputs : MonoBehaviour
     {
         playerInput.actions.FindActionMap("Player").Enable();
         playerInput.actions.FindActionMap("UI").Disable();
-    }
-
-    public void OnIngameMenu()
-    {
-        if(pauseMenu.IsPaused)
-            pauseMenu.Continue();
-        else
-            pauseMenu.PauseGame();
-    }
-    
-    public void OnDismiss()
-    {
-        pauseMenu.Continue();
     }
 }
