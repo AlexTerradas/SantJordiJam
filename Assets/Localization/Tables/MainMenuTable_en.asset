@@ -74,12 +74,28 @@ MonoBehaviour:
     m_Localized: English
     m_Metadata:
       m_Items: []
-  - m_Id: 25428596113408
-    m_Localized: Fullscreen
+  - m_Id: 749419363319808
+    m_Localized: Programming
     m_Metadata:
       m_Items: []
   - m_Id: 25392378298368
     m_Localized: Windowed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 749473713111040
+    m_Localized: Design
+    m_Metadata:
+      m_Items: []
+  - m_Id: 749505841479680
+    m_Localized: Art
+    m_Metadata:
+      m_Items: []
+  - m_Id: 749536648642560
+    m_Localized: Animations
+    m_Metadata:
+      m_Items: []
+  - m_Id: 749563492188160
+    m_Localized: Music
     m_Metadata:
       m_Items: []
   references:
