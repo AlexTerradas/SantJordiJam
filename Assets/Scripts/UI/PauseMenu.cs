@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private float fadeDuration = 0.5f;
-
-
+    
     public bool Faded;
     public bool Finished;
     public GameObject pauseMenuUI;
@@ -33,6 +34,11 @@ public class PauseMenu : MonoBehaviour
                 PauseGame();
             }
         }
+    }
+    
+    private void OnPauseKey()
+    {
+        print("Escape is pressed");
     }
 
     public void RestartGame()
@@ -84,6 +90,7 @@ public class PauseMenu : MonoBehaviour
         Faded = !Faded;
     }
     
+    //Cosita de canvi de menu
     public IEnumerator Fade (CanvasGroup canvas, float start, float end)
     {
         float counter = 0f;
