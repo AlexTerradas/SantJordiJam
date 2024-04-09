@@ -11,6 +11,10 @@ public class MainMenu : MonoBehaviour
     public CanvasFade CreditsCanvas;
 
     private CanvasFade currentShownCanvas;
+
+    private CanvasGroup _mainMenu;
+    private CanvasGroup _optionsMenu;
+    private CanvasGroup _creditsCanvas;
     
     private void Start()
     {
