@@ -44,8 +44,8 @@ public class InputControlsDummy : MonoBehaviour
     {
         print("G Key is pressed");
     }
-        private void OnPauseKey()
+    private void OnPauseKey()
     {
-            print("Escape is pressed");
+        print("Escape is pressed");
     }
 }
