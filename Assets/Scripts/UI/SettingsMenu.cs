@@ -30,7 +30,7 @@ public class SettingsMenu : MonoBehaviour
     public void SwapDisplayMode()
     {
         Screen.fullScreen = !Screen.fullScreen;
-        _displayText.text = Screen.fullScreen ? "Fullscreen" : "Windowed";
+        _displayText.text = Screen.fullScreen ? "Windowed" : "Fullscreen";
     }
     
     public void IncreaseResolution()

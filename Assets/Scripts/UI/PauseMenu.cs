@@ -4,14 +4,16 @@ using System.Collections;
 
 public class PauseMenu : MonoBehaviour
 {
-    private float Duration = 1f;
+    [SerializeField] private float fadeDuration = 0.5f;
+
 
     public bool Faded;
     public bool Finished;
     public GameObject pauseMenuUI;
     public GameObject LoadingScreen;
     public CanvasGroup canvGroup;
-    public static bool gameIsPaused = false;
+    
+    private bool _paused;
 
     private void Start()
     {
@@ -22,7 +24,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (gameIsPaused)
+            if (_paused)
             {
                 Resume();
             }
@@ -36,14 +38,14 @@ public class PauseMenu : MonoBehaviour
     public void RestartGame()
     {
         pauseMenuUI.SetActive(false);
-        gameIsPaused = false;
+        _paused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Resume()
     {
         Fade();
-        gameIsPaused = false;
+        _paused = false;
     }
 
     public void LoadScene(string scene_name)
@@ -73,39 +75,24 @@ public class PauseMenu : MonoBehaviour
     void PauseGame()
     {
         Fade();
-        gameIsPaused = true;
+        _paused = true;
     }
 
     public void Fade()
     {
-        StartCoroutine(DoFade(canvGroup, canvGroup.alpha, Faded ? 1 : 0));
-
+        StartCoroutine(Fade(canvGroup, canvGroup.alpha, Faded ? 1 : 0));
         Faded = !Faded;
     }
-
-    public IEnumerator DoFade(CanvasGroup canvGroup, float start, float end)
+    
+    public IEnumerator Fade (CanvasGroup canvas, float start, float end)
     {
         float counter = 0f;
-
-        if (end == 1)
+        
+        while (counter < fadeDuration)
         {
-            canvGroup.interactable = true;
-            canvGroup.blocksRaycasts = true;
-        }
-        else
-        {
-            canvGroup.interactable = false;
-            canvGroup.blocksRaycasts = false;
-        }
-
-        while (counter < Duration)
-        {
-            counter += Time.deltaTime;
-            canvGroup.alpha = Mathf.Lerp(start, end, counter / Duration);
-
+            counter += Time.unscaledDeltaTime;
+            canvas.alpha = Mathf.Lerp(start, end, counter / fadeDuration);
             yield return null;
         }
-
-        Finished = true;
     }
 }
