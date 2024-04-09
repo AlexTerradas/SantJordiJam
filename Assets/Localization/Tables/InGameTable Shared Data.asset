@@ -14,7 +14,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: InGameTable
   m_TableCollectionNameGuidString: 4730c4bdae35cc9488636255988d6a29
-  m_Entries: []
+  m_Entries:
+  - m_Id: 1033822462472192
+    m_Key: CinematicaInicial1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1034020110659584
+    m_Key: CinematicaInicial_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1034430217121792
+    m_Key: CinematicaInicial_DecisioPrincesa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1034527516585984
+    m_Key: CinematicaInicial_DecisioJordi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1035685396148224
+    m_Key: FinalPopUp_Titol
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1035854829252608
+    m_Key: FinalPopUp_Objectiu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1036008789569536
+    m_Key: FinalPopUp_Completat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1036707636113408
+    m_Key: FinalPopUp_NoCompletat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1036972263141376
+    m_Key: FinalPopUp_Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1037065645125632
+    m_Key: FinalPopUp_Reintentar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1037117977456640
+    m_Key: FinalPopUp_Continuar
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -17,7 +17,51 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 4730c4bdae35cc9488636255988d6a29, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 1033822462472192
+    m_Localized: I'VE ALWAYS LOVED YOU...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1034020110659584
+    m_Localized: '[Rival] I challenge you to a Dance Battle!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1034430217121792
+    m_Localized: Princess!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1034527516585984
+    m_Localized: Saint Jordi!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1035685396148224
+    m_Localized: FINISHED!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1035854829252608
+    m_Localized: 'Goal:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1036008789569536
+    m_Localized: SUCCESS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1036707636113408
+    m_Localized: FAILED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1036972263141376
+    m_Localized: Main Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1037065645125632
+    m_Localized: Retry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1037117977456640
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

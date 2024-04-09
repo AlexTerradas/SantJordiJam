@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20626810093568
-    m_Localized: Creditos
+    m_Localized: "Cr\xE9ditos"
     m_Metadata:
       m_Items: []
   - m_Id: 20706107604992
@@ -39,7 +39,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 21218030796800
-    m_Localized: Audio
+    m_Localized: "\xC1udio"
     m_Metadata:
       m_Items: []
   - m_Id: 21246736613376
@@ -51,7 +51,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 21605961973760
-    m_Localized: Musica
+    m_Localized: "M\xFAsica"
     m_Metadata:
       m_Items: []
   - m_Id: 21635007528960
@@ -59,15 +59,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 21654376824832
-    m_Localized: Resolucion
+    m_Localized: "Resoluci\xF3n"
     m_Metadata:
       m_Items: []
   - m_Id: 21869351682048
-    m_Localized: Visualizacion
+    m_Localized: "Visualizaci\xF3n"
     m_Metadata:
       m_Items: []
   - m_Id: 23376767762432
-    m_Localized: Atras
+    m_Localized: "Atr\xE1s"
     m_Metadata:
       m_Items: []
   - m_Id: 24440703303680
@@ -75,7 +75,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 749419363319808
-    m_Localized: Programacion
+    m_Localized: "Programaci\xF3n"
     m_Metadata:
       m_Items: []
   - m_Id: 25392378298368
@@ -95,7 +95,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 749563492188160
-    m_Localized: Musica
+    m_Localized: "M\xFAsica"
     m_Metadata:
       m_Items: []
   references:

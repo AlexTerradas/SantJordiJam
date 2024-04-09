@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20626810093568
-    m_Localized: Credits
+    m_Localized: "Cr\xE8dits"
     m_Metadata:
       m_Items: []
   - m_Id: 20706107604992
@@ -39,7 +39,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 21218030796800
-    m_Localized: Audio
+    m_Localized: "\xC0udio"
     m_Metadata:
       m_Items: []
   - m_Id: 21246736613376
@@ -51,7 +51,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 21605961973760
-    m_Localized: Musica
+    m_Localized: "M\xFAsica"
     m_Metadata:
       m_Items: []
   - m_Id: 21635007528960
@@ -59,11 +59,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 21654376824832
-    m_Localized: Resolucio
+    m_Localized: "Resoluci\xF3"
     m_Metadata:
       m_Items: []
   - m_Id: 21869351682048
-    m_Localized: Visualitzacio
+    m_Localized: "Visualitzaci\xF3"
     m_Metadata:
       m_Items: []
   - m_Id: 23376767762432
@@ -71,7 +71,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 24440703303680
-    m_Localized: Catala
+    m_Localized: "Catal\xE0"
     m_Metadata:
       m_Items: []
   - m_Id: 749419363319808
@@ -95,7 +95,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 749563492188160
-    m_Localized: Musica
+    m_Localized: "M\xFAsica"
     m_Metadata:
       m_Items: []
   references:

@@ -17,7 +17,51 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 4730c4bdae35cc9488636255988d6a29, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 1033822462472192
+    m_Localized: "SEMPRE T\u2019HE ESTIMAT..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1034020110659584
+    m_Localized: '[Rival] et repto a una Batalla de Ball!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1034430217121792
+    m_Localized: Princesa!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1034527516585984
+    m_Localized: Sant Jordi!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1035685396148224
+    m_Localized: FINAL!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1035854829252608
+    m_Localized: 'Objectiu:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1036008789569536
+    m_Localized: COMPLETAT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1036707636113408
+    m_Localized: NO COMPLETAT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1036972263141376
+    m_Localized: "Men\xFA Principal"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1037065645125632
+    m_Localized: Reintentar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1037117977456640
+    m_Localized: Continuar
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
