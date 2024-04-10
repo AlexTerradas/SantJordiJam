@@ -59,6 +59,22 @@ MonoBehaviour:
     m_Key: FinalPopUp_Continuar
     m_Metadata:
       m_Items: []
+  - m_Id: 1458403744608256
+    m_Key: Gameplay_Perfecte
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1458691129929728
+    m_Key: Gameplay_Be
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1458813519720448
+    m_Key: Gameplay_Meh
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1458885305233408
+    m_Key: Gameplay_Fallat
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
