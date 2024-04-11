@@ -55,11 +55,13 @@ public class PauseMenu : MonoBehaviour
 
     void Pause()
     {
+        Time.timeScale = 0.0f;
         StartCoroutine(Fade(currentCanvas, currentCanvas.alpha, 1));
         _paused = true;
     }
     public void Resume()
     {
+        Time.timeScale = 1.0f;
         StartCoroutine(Fade(currentCanvas, currentCanvas.alpha, 0));
         _paused = false;
     }
