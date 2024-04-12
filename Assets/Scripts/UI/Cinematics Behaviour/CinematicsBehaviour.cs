@@ -7,7 +7,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 public class CinematicsBehaviour : MonoBehaviour
 {
-    [SerializeField] ChooseYourBitch bitch;
+    [SerializeField] ChooseYourBitch bitch = ChooseYourBitch.NONE;
     [SerializeField] bool eventFired;
 
     [Header("Canvas images")]
@@ -34,7 +34,6 @@ public class CinematicsBehaviour : MonoBehaviour
     {
         image.sprite = _cinematic.GetSprite();
 
-
         if (_cinematic.GetHasInteraction())
         {
             choiceCinematics.gameObject.SetActive(true);
@@ -46,9 +45,7 @@ public class CinematicsBehaviour : MonoBehaviour
             choiceCinematics.gameObject.SetActive(false);
         }
         else
-        {
             yield return new WaitForSeconds(_cinematic.GetTime());
-        }
 
         if(cinematicImages.Count-1 > cinematicImages.IndexOf(_nextCinematic))
             StartCoroutine(ShowCinematic(_nextCinematic, cinematicImages[cinematicImages.IndexOf(_nextCinematic)+1]));
