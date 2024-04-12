@@ -4,141 +4,60 @@ using UnityEngine;
 
 public class SettingsMenu : MonoBehaviour
 {
-    [SerializeField] private CanvasFade soundCanvas;
-    [SerializeField] private CanvasFade videoCanvas;
-    private CanvasFade currentShownCanvas;
+    [SerializeField] private TMP_Text _displayText;
+    [SerializeField] private TMP_Text _resolutionText;
     
-    [SerializeField] private HighlightText soundCanvasButton;
-    [SerializeField] private HighlightText videoCanvasButton;
-
-    private bool setAppToFullscreen = true;
-    [SerializeField] private TextMeshProUGUI displayText;
+    private Resolution[] _resolutions;
+    private string[] _resolutionNames;
+    private int _currentResolution; 
     
-    Resolution[] resolutions;
-    string[] resolutionsNames;
-    int actualResolution; 
-    [SerializeField] private TextMeshProUGUI resolutionText;
-
     private void Start()
     {
-        setAppToFullscreen = PlayerPrefs.GetInt("Fullscreen") == 0; // 0 == Fullscreen, 1 == Windowed
-        Screen.fullScreen = setAppToFullscreen;
-        displayText.text = setAppToFullscreen ? "Fullscreen" : "Windowed";
-
-        resolutions = Screen.resolutions;
+        _resolutions = Screen.resolutions;
 
         List<string> options = new List<string>();
 
-        int currentResolutionIndex = 0;
-        int iter = 0;
-        for (int i = 0; i < resolutions.Length; i++)
+        for (int i = 0; i < _resolutions.Length; i++)
         {
-            string option = resolutions[i].width + "x" + resolutions[i].height;
-            if (options.Contains(option.ToLower()))
-            {
-                continue;
-            }
-
-            options.Add(option);
-
-            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
-            {
-                currentResolutionIndex = iter;
-            }
-
-            iter++;
-        }
-
-        resolutionsNames = options.ToArray();
-        
-        if (PlayerPrefs.GetInt("Resolution") == 0)
-        {
-            actualResolution = resolutionsNames.Length;
-        }
-        else
-        {
-            actualResolution = PlayerPrefs.GetInt("Resolution");
+            string resolution = _resolutions[i].width + "x" + _resolutions[i].height;
+            if (options.Contains(resolution.ToLower())) continue;
+            options.Add(resolution);
         }
         
-        SetResolutionText();
-
-        currentShownCanvas = soundCanvas;
-        soundCanvasButton.SetSelectedState(true);
-        videoCanvasButton.SetSelectedState(false);
+        _resolutionNames = options.ToArray();
     }
 
-    public void SetFullscreen(bool isFullscreen)
+    public void SwapDisplayMode()
     {
-        Screen.fullScreen = isFullscreen;
-    }
-
-    public void ChangeWindowedMode()
-    {
-        setAppToFullscreen = !setAppToFullscreen;
-        Screen.fullScreen = setAppToFullscreen;
-        displayText.text = setAppToFullscreen ? "Fullscreen" : "Windowed";
-    }
-
-    public void SetResolution()
-    {
-        var width = int.Parse(resolutionsNames[actualResolution - 1].Split('x')[0]);
-        var height = int.Parse(resolutionsNames[actualResolution - 1].Split('x')[1]);
-
-        Screen.SetResolution(width, height, Screen.fullScreen);
-    }
-
-    public void SetSoundWindow()
-    {
-        if (currentShownCanvas != soundCanvas)
-        {
-            ChangeMenu(soundCanvas);
-            soundCanvasButton.SetSelectedState(true);
-            videoCanvasButton.SetSelectedState(false);
-        }
-    }
-
-    public void SetVideoWindow()
-    {
-        if (currentShownCanvas != videoCanvas)
-        {
-            ChangeMenu(videoCanvas);
-            soundCanvasButton.SetSelectedState(false);
-            videoCanvasButton.SetSelectedState(true);
-        }
-    }
-
-    private void ChangeMenu(CanvasFade newCanvas)
-    {
-        currentShownCanvas.FadeOut();
-        currentShownCanvas = newCanvas;
-        currentShownCanvas.FadeIn();
+        Screen.fullScreen = !Screen.fullScreen;
+        _displayText.text = Screen.fullScreen ? "Windowed" : "Fullscreen";
     }
     
-    public void SetResolutionText()
-    {        
-        resolutionText.text = resolutionsNames[actualResolution - 1];
-    }
-
     public void IncreaseResolution()
     {
-        if (actualResolution < resolutionsNames.Length)
-            actualResolution++;
+        if (_currentResolution < _resolutionNames.Length)
+            _currentResolution++;
         else
-            actualResolution = 1;
-
-
-        SetResolutionText();
+            _currentResolution = 1;
+        
         SetResolution();
     }
 
     public void DecreaseResolution()
     {
-        if (actualResolution > 1)
-            actualResolution--;
+        if (_currentResolution > 1)
+            _currentResolution--;
         else
-            actualResolution = resolutionsNames.Length;
-
-        SetResolutionText();
+            _currentResolution = _resolutionNames.Length;
+        
         SetResolution();
+    }
+    
+    public void SetResolution()
+    {
+        int width = int.Parse(_resolutionNames[_currentResolution - 1].Split('x')[0]);
+        int height = int.Parse(_resolutionNames[_currentResolution - 1].Split('x')[1]);
+        _resolutionText.text = _resolutionNames[_currentResolution - 1];
+        Screen.SetResolution(width, height, Screen.fullScreen);
     }
 }

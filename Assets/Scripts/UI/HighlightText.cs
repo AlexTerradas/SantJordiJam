@@ -3,27 +3,20 @@ using UnityEngine;
 
 public class HighlightText : MonoBehaviour
 {
-    public TextMeshProUGUI Text;
-    [SerializeField] private TMP_FontAsset unhighlightedFont;
-    [SerializeField] private TMP_FontAsset highlightedFont;
-    [SerializeField] private TMP_FontAsset selectedFont;
+    private TMP_Text _text;
 
-    [SerializeField]private bool selected = false;
-
-    private void OnEnable()
+    private void Start()
     {
-        SetSelectedState(selected);
+        _text = GetComponentInChildren<TMP_Text>();
     }
 
-    public void SetHighlightState(bool state)
+    public void PointerEnter()
     {
-        if(!selected)
-            Text.font = state ? highlightedFont : unhighlightedFont;
+        _text.fontStyle = FontStyles.Bold | FontStyles.UpperCase;
     }
 
-    public void SetSelectedState(bool state)
+    public void PointerExit()
     {
-        selected = state;
-        Text.font = selected ? selectedFont : unhighlightedFont;
+        _text.fontStyle = FontStyles.Normal | FontStyles.UpperCase;
     }
 }
