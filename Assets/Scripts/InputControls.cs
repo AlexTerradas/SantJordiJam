@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 
-public class InputControlsDummy : MonoBehaviour
+public class InputControls : MonoBehaviour
 {
     [Header("Inputs")]
     [SerializeField]
@@ -19,6 +19,10 @@ public class InputControlsDummy : MonoBehaviour
     private InputAction anyKeyAction;
     [SerializeField]
     private InputAction pauseAction;
+
+    [Header("UI")]
+    [SerializeField] 
+    private PauseMenu pauseMenu;
     
     void Awake() 
     {
@@ -44,8 +48,9 @@ public class InputControlsDummy : MonoBehaviour
     {
         print("G Key is pressed");
     }
-        private void OnPauseKey()
+    private void OnPauseKey()
     {
-            print("Escape is pressed");
+        //print("Escape is pressed");
+        pauseMenu.PauseGame();
     }
 }
