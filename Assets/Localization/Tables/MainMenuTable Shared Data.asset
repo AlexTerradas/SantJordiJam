@@ -95,6 +95,10 @@ MonoBehaviour:
     m_Key: MusicTitle
     m_Metadata:
       m_Items: []
+  - m_Id: 1826554456756224
+    m_Key: ContinuePause
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -1,72 +1,49 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public CanvasFade LoadingScreen;
-    private CanvasGroup _canvas;
-    public CanvasFade MainMenuCanvas;
-    public CanvasFade OptionsCanvas;
-    public CanvasFade ControlsCanvas;
-    public CanvasFade CreditsCanvas;
-
-    private CanvasFade currentShownCanvas;
-
-    private CanvasGroup _mainMenu;
-    private CanvasGroup _optionsMenu;
-    private CanvasGroup _creditsCanvas;
-    
-    private void Start()
-    {
-        Time.timeScale = 1;
-
-        _canvas = MainMenuCanvas.GetComponent<CanvasGroup>();
-        LoadingScreen.gameObject.SetActive(true);
-        LoadingScreen.FadeOut();
-
-        if (SceneManager.GetActiveScene().name == "MainMenu")
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        
-        currentShownCanvas = MainMenuCanvas;
-    }
-
+    [SerializeField] private CanvasGroup _currentCanvas;
+    [SerializeField] private Animator _cameraAnimator;
+    [SerializeField] private float fadeDuration = 0.5f;
+    [SerializeField] private float fadeDelay = 0.5f;
     public void StartGame()
     {
-        _canvas.interactable = false;
-        LoadingScreen.gameObject.SetActive(true);
-        LoadingScreen.FadeIn(() => SceneManager.LoadScene("Core"));
+        StartCoroutine(Fade(_currentCanvas, _currentCanvas.alpha, 0));
+        SceneManager.LoadScene("Game");
     }
 
-    public void MainMenuFade()
+    public void ChangeMenu(CanvasGroup newCanvas)
     {
-        ChangeMenu(MainMenuCanvas);
+        _currentCanvas.interactable = false;
+        _currentCanvas.blocksRaycasts = false;
+        StartCoroutine(Fade(_currentCanvas, _currentCanvas.alpha, 0));
+        StartCoroutine(Fade(newCanvas, _currentCanvas.alpha, 1));
+        newCanvas.interactable = true;
+        newCanvas.blocksRaycasts = true;
+        _currentCanvas = newCanvas;
     }
-
-    public void ControlsMenu()
+    
+    public IEnumerator Fade (CanvasGroup canvas, float start, float end)
     {
-        ChangeMenu(ControlsCanvas);
+        float counter = 0f;
+        
+        yield return new WaitForSecondsRealtime(fadeDelay);
+        
+        while (counter < fadeDuration)
+        {
+            counter += Time.unscaledDeltaTime;
+            canvas.alpha = Mathf.Lerp(start, end, counter / fadeDuration);
+            yield return null;
+        }
     }
 
-    public void OptionsMenu()
+    public void AnimateCamera(string trigger)
     {
-        ChangeMenu(OptionsCanvas);
+        _cameraAnimator.SetTrigger(trigger);
     }
-
-    public void CreditsMenu()
-    {
-        ChangeMenu(CreditsCanvas);
-    }
-
-    private void ChangeMenu(CanvasFade newCanvas)
-    {
-        currentShownCanvas.FadeOut();
-        currentShownCanvas = newCanvas;
-        currentShownCanvas.FadeIn();
-    }
-
+    
     public void QuitGame()
     {
         Application.Quit();
