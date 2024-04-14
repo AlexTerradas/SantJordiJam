@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,8 +16,9 @@ public class CinematicsBehaviour : MonoBehaviour
     [SerializeField] Cinematic finalA;
     [SerializeField] Cinematic finalB;
 
-    [Header("Cinematic Image")]
+    [Header("Cinematic Properties")]
     [SerializeField] Image image;
+    [SerializeField] TextMeshProUGUI text;
 
     [Header("Cinematics Canvas")]
     [SerializeField] GameObject introCinematics;
@@ -72,18 +74,5 @@ public class CinematicsBehaviour : MonoBehaviour
                 break;
         }
         eventFired = true;
-    }
-
-    public void ShowChoice()
-    {
-        switch (bitch)
-        {
-            case ChooseYourBitch.SantJordi:
-
-                break;
-            case ChooseYourBitch.Princesa:
-
-                break;
-        }
     }
 }
