@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,12 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Animator _cameraAnimator;
     [SerializeField] private float fadeDuration = 0.5f;
     [SerializeField] private float fadeDelay = 0.5f;
+
+    private void Start()
+    {
+        AudioManager.instance.PlayOneShot(AudioManager.instance.MainMenu);
+    }
+
     public void StartGame()
     {
         StartCoroutine(Fade(_currentCanvas, _currentCanvas.alpha, 0));
@@ -42,6 +49,11 @@ public class MainMenu : MonoBehaviour
     public void AnimateCamera(string trigger)
     {
         _cameraAnimator.SetTrigger(trigger);
+    }
+
+    public void ButtonClick()
+    {
+        AudioManager.instance.PlayOneShot(AudioManager.instance.ButtonClick);
     }
     
     public void QuitGame()

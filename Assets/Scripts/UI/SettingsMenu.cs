@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
+using FMOD.Studio;
+using FMODUnity;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -9,7 +12,18 @@ public class SettingsMenu : MonoBehaviour
     
     private Resolution[] _resolutions;
     private string[] _resolutionNames;
-    private int _currentResolution; 
+    private int _currentResolution;
+
+    [SerializeField] private Slider _sfxSlider;
+    [SerializeField] private Slider _musicSlider;
+    
+    [Range(0, 10)]
+    public float _sfxVolume = 10;
+    [Range(0, 10)]
+    public float _musicVolume = 10;
+
+    private Bus _sfxBus;
+    private Bus _musicBus;
     
     private void Start()
     {
@@ -25,7 +39,42 @@ public class SettingsMenu : MonoBehaviour
         }
         
         _resolutionNames = options.ToArray();
+
+        _sfxBus = RuntimeManager.GetBus("bus:/SFX");
+        _musicBus = RuntimeManager.GetBus("bus:/Music");
     }
+
+    private void Update()
+    {
+        _sfxBus.setVolume(_sfxVolume/10);
+        _musicBus.setVolume(_musicVolume/10);
+    }
+
+    public void IncreaseSFXVolume()
+    {
+        _sfxVolume++;
+        _sfxSlider.value = _sfxVolume;
+    }
+
+    public void DecreaseSFXVolume()
+    {
+        _sfxVolume--; 
+        _sfxSlider.value = _sfxVolume;
+    }
+    public void SetSFXVolume(float value) { _sfxVolume = value; }
+
+    public void IncreaseMusicVolume()
+    {
+        _musicVolume++; 
+        _musicSlider.value = _musicVolume;
+    }
+
+    public void DecreaseMusicVolume()
+    {
+        _musicVolume--; 
+        _musicSlider.value = _musicVolume;
+    }
+    public void SetMusicVolume(float value) { _musicVolume = value; }
 
     public void SwapDisplayMode()
     {

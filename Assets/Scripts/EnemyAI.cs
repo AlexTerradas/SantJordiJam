@@ -18,8 +18,12 @@ public class EnemyAI : MonoBehaviour
     IEnumerator TriggerMistake()
     {
         yield return new WaitForSeconds(_mistakeTimer);
-        _animationController.StartCoroutine(_animationController.MistakeAnimation());
-        _mistakeTimer = Random.Range(_mistakeTimerMin, _mistakeTimerMax);
-        StartCoroutine(TriggerMistake());
+        
+        if (GameManager.instance.gameState == GameManager.GameState.Playing)
+        {
+            _animationController.StartCoroutine(_animationController.MistakeAnimation());
+            _mistakeTimer = Random.Range(_mistakeTimerMin, _mistakeTimerMax);
+            StartCoroutine(TriggerMistake());
+        }
     }
 }
