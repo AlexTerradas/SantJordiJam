@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 00fa108002e62ee4095b55c4cb5c7c02, type: 2}
     - target: {fileID: -8679921383154817045, guid: 1164c19a25762ce4caefe9a5e142b66e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.5
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1164c19a25762ce4caefe9a5e142b66e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1164c19a25762ce4caefe9a5e142b66e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -135,6 +135,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1164c19a25762ce4caefe9a5e142b66e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5128579540622408506}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1164c19a25762ce4caefe9a5e142b66e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2632647068997968521}
   m_SourcePrefab: {fileID: 100100000, guid: 1164c19a25762ce4caefe9a5e142b66e, type: 3}
 --- !u!1 &3187700920070658064 stripped
 GameObject:
@@ -162,3 +165,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2632647068997968521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3187700920070658064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef658b4b8369f0a4f85fcc678960099a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _danceParameters:
+  - Dance 1
+  - Dance 2
+  - Dance 3
+  - Dance 4
+  - Dance 5

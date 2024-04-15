@@ -111,7 +111,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Virtual Camera
+  m_Name: 00_Camera
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: EnterMain

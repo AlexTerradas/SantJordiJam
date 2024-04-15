@@ -6,32 +6,40 @@ public class CharacterAnimations : MonoBehaviour
 {
     [SerializeField] private string[] _danceParameters;
     private Animator _animator;
-    private int _danceValue;
-
+    private float _danceAnimationDelay;
+    private float _mistakeAnimationDelay;
+    private int _dance;
+    
     private void Start()
     {
         _animator = GetComponent<Animator>();
         StartCoroutine(StartGame());
     }
 
-    IEnumerator StartGame()
+    public IEnumerator StartGame()
     {
         yield return new WaitForSeconds(11);
-        InvokeRepeating("DanceAnimation", 0.0f, 3.0f);
+        StartCoroutine(DanceAnimation());
     }
 
-    public void DanceAnimation()
+    public IEnumerator DanceAnimation()
     {
         int random = Random.Range(0, _danceParameters.Length);
-        if (random == _danceValue)
-            DanceAnimation();
-        _danceValue = random;
-        _animator.SetTrigger(_danceParameters[random]);
+        if (random == _dance)
+            StartCoroutine(DanceAnimation());
+        _dance = random;
+        _animator.SetTrigger(_danceParameters[_dance]);
+        
+        yield return new WaitForSeconds(_danceAnimationDelay);
+        StartCoroutine(DanceAnimation());
     }
 
-    public void MistakeAnimation()
+    public IEnumerator MistakeAnimation()
     {
         _animator.SetTrigger("Dizzy");
+        
+        yield return new WaitForSeconds(_mistakeAnimationDelay);
+        StartCoroutine(DanceAnimation());
     }
 
     public void FinalAnimation()
