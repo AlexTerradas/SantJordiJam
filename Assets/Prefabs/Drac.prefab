@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 00fa108002e62ee4095b55c4cb5c7c02, type: 2}
     - target: {fileID: -8679921383154817045, guid: 1164c19a25762ce4caefe9a5e142b66e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1164c19a25762ce4caefe9a5e142b66e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1164c19a25762ce4caefe9a5e142b66e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -183,3 +183,5 @@ MonoBehaviour:
   - Dance 3
   - Dance 4
   - Dance 5
+  _danceAnimationDelay: 0
+  _mistakeAnimationDelay: 0
