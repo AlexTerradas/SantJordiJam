@@ -8225,7 +8225,7 @@ MonoBehaviour:
   _currentCanvas: {fileID: 2100953314}
   _cameraAnimator: {fileID: 578510290}
   fadeDuration: 0.5
-  fadeDelay: 0
+  fadeDelay: 0.5
 --- !u!114 &1293010818
 MonoBehaviour:
   m_ObjectHideFlags: 0
