@@ -11,7 +11,7 @@ public class Cinematic : ScriptableObject
     [Header("Properties")]
     [SerializeField] Sprite sprite;
     [SerializeField] float time;
-    [SerializeField] LocalizeStringEvent localizeStringEvent;
+    [SerializeField] string localizeStringEvent;
 
     [Header("Interaction")]
     [SerializeField] bool hasInteraction;
@@ -31,7 +31,7 @@ public class Cinematic : ScriptableObject
         return hasInteraction;
     }
 
-    public LocalizeStringEvent GetStringEvent()
+    public string GetStringEvent()
     {
         return localizeStringEvent;
     }
