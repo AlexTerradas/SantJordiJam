@@ -18,7 +18,7 @@ public class CinematicsBehaviour : MonoBehaviour
 
     [Header("Cinematic Properties")]
     [SerializeField] Image image;
-    [SerializeField] TextMeshProUGUI text;
+    [SerializeField] TextBubble textBubble;
 
     [Header("Cinematics Canvas")]
     [SerializeField] GameObject introCinematics;
@@ -35,6 +35,13 @@ public class CinematicsBehaviour : MonoBehaviour
     public IEnumerator ShowCinematic(Cinematic _cinematic, Cinematic _nextCinematic)
     {
         image.sprite = _cinematic.GetSprite();
+
+        if(_cinematic.GetStringEvent() != "")
+        {
+            textBubble.OnDisplay(_cinematic.GetStringEvent());
+            while(!textBubble.GetTextDisplayed())
+                yield return new WaitForEndOfFrame();
+        }
 
         if (_cinematic.GetHasInteraction())
         {
