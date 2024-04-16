@@ -13,6 +13,7 @@ public class HighlightText : MonoBehaviour
     public void PointerEnter()
     {
         _text.fontStyle = FontStyles.Bold | FontStyles.UpperCase;
+        AudioManager.instance.PlayOneShot(AudioManager.instance.ButtonHover);
     }
 
     public void PointerExit()
