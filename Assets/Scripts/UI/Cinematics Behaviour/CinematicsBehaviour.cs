@@ -59,7 +59,10 @@ public class CinematicsBehaviour : MonoBehaviour
         if(cinematicImages.Count-1 > cinematicImages.IndexOf(_nextCinematic))
             StartCoroutine(ShowCinematic(_nextCinematic, cinematicImages[cinematicImages.IndexOf(_nextCinematic)+1]));
         else
+        {
+            // canviar linea d'abaix per passar a gameplay <-- AQUI DARO RATA! hihi
             introCinematics.SetActive(false);
+        }
     }
 
     /// <summary>

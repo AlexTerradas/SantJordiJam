@@ -13,9 +13,6 @@ MonoBehaviour:
   m_Name: Inicial5Cinematic
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 0df9d37b6c6d8e44a87d608c7c2c8522, type: 3}
-  time: 2
-  interaction: {fileID: 0}
-  unityEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  eventFired: 0
+  time: 4
+  localizeStringEvent: InGameTable/CinematicaInicial_2
+  hasInteraction: 0
