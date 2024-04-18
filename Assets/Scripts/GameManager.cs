@@ -1,10 +1,20 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance { get; private set; }
+    [SerializeField] private float _introTimer;
+    private bool _playerWinning;
+    
+    public delegate void PlayingState();
+    public static event PlayingState onPlayingState;
+    
+    public delegate void EndingState();
+    public static event EndingState onEndingState;
+    
+    public delegate void ResultsState(bool win);
+    public static event ResultsState onResultsState;
     
     public enum GameState
     {
@@ -34,23 +44,22 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartPlayingState()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(_introTimer);
         gameState = GameState.Playing;
-        //DanceAnimation
+        onPlayingState();
     }
 
     IEnumerator StartEndingState()
     {
         yield return new WaitForSeconds(180);
         gameState = GameState.Ending;
-        //FinalPose
-        
+        onEndingState();
     }
 
     IEnumerator StartResultsState()
     {
         yield return new WaitForSeconds(185f);
         gameState = GameState.Results;
-        //WinLoseAnimation
+        onResultsState(_playerWinning);
     }
 }
