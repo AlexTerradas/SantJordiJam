@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 754e769079a27da4faf0592ad88206e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 754e769079a27da4faf0592ad88206e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 754e769079a27da4faf0592ad88206e7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -207,8 +207,8 @@ MonoBehaviour:
   - Dance 4
   - Dance 5
   - Dance 6
-  _danceAnimationDelay: 0
-  _mistakeAnimationDelay: 0
+  _danceAnimationDelay: 5
+  _mistakeAnimationDelay: 3
 --- !u!114 &7334389000156322564
 MonoBehaviour:
   m_ObjectHideFlags: 0
