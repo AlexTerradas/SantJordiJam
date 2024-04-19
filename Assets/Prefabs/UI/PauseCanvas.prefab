@@ -5225,7 +5225,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6159227131330770150}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -7281,7 +7281,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af72f1e33f755d4097db837ee3c756d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _displayText: {fileID: 8654834652143526299}
+  displayLocalizationEvent: {fileID: 1453460428085505532}
+  _windowedKey: DisplaySettingWindow
+  _fullscreenKey: DisplaySettingFullScreen
   _resolutionText: {fileID: 1089144791529780143}
   _sfxSlider: {fileID: 7065165739550740402}
   _musicSlider: {fileID: 1358059104947663053}
