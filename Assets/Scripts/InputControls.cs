@@ -16,37 +16,25 @@ public class InputControls : MonoBehaviour
     [SerializeField]
     private InputAction spaceAction;
     [SerializeField]
-    private InputAction anyKeyAction;
-    [SerializeField]
     private InputAction pauseAction;
 
     [Header("UI")]
     [SerializeField] 
     private PauseMenu pauseMenu;
-    
-    void Awake() 
-    {
-        
-    }
-    void Update()
-    {
 
-    }
+    [Header("Player")]
+    public PlayerController playerController;
 
     private void OnMovement(InputValue input)
     {
         Vector2 movementInput = input.Get<Vector2>();
         print("X: " + movementInput.x);
+        playerController.MovePointXAxis(movementInput.x);
     }
-
     private void OnSpaceKey()
     {
         print("Space Key is pressed");
-    }
-
-    private void OnGKey()
-    {
-        print("G Key is pressed");
+        playerController.InteractWithPoint();
     }
     private void OnPauseKey()
     {

@@ -260,6 +260,83 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1001 &733829216
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 267848945463727802, guid: 4ed265f36c691ad49ae4cdad3a1a0166, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1389335668}
+    - target: {fileID: 267848945463727802, guid: 4ed265f36c691ad49ae4cdad3a1a0166, type: 3}
+      propertyPath: movementAction.m_Name
+      value: Movement
+      objectReference: {fileID: 0}
+    - target: {fileID: 267848945463727802, guid: 4ed265f36c691ad49ae4cdad3a1a0166, type: 3}
+      propertyPath: movementAction.m_SingletonActionBindings.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 267848945463727802, guid: 4ed265f36c691ad49ae4cdad3a1a0166, type: 3}
+      propertyPath: movementAction.m_SingletonActionBindings.Array.data[0].m_Id
+      value: ebb9b897-65b3-4073-bad4-fa4de8d16ff8
+      objectReference: {fileID: 0}
+    - target: {fileID: 267848945463727802, guid: 4ed265f36c691ad49ae4cdad3a1a0166, type: 3}
+      propertyPath: movementAction.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Movement
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940126502010076736, guid: 4ed265f36c691ad49ae4cdad3a1a0166, type: 3}
+      propertyPath: m_Name
+      value: Inputs
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203974637403507242, guid: 4ed265f36c691ad49ae4cdad3a1a0166, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -32.885105
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203974637403507242, guid: 4ed265f36c691ad49ae4cdad3a1a0166, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -23.576899
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203974637403507242, guid: 4ed265f36c691ad49ae4cdad3a1a0166, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 31.286562
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203974637403507242, guid: 4ed265f36c691ad49ae4cdad3a1a0166, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203974637403507242, guid: 4ed265f36c691ad49ae4cdad3a1a0166, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203974637403507242, guid: 4ed265f36c691ad49ae4cdad3a1a0166, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203974637403507242, guid: 4ed265f36c691ad49ae4cdad3a1a0166, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203974637403507242, guid: 4ed265f36c691ad49ae4cdad3a1a0166, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203974637403507242, guid: 4ed265f36c691ad49ae4cdad3a1a0166, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203974637403507242, guid: 4ed265f36c691ad49ae4cdad3a1a0166, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4ed265f36c691ad49ae4cdad3a1a0166, type: 3}
 --- !u!1 &955307154
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,6 +690,12 @@ MonoBehaviour:
   m_YMovementSpeed: 1
   m_XMovementSpeed: 300
   m_TimerText: {fileID: 959342866}
+  pointsLevelText:
+  - FAIL
+  - OK
+  - GOOD
+  - PERFECT
+  puntuationTextPopup: {fileID: -7812609512217437000, guid: cf3410c588cb6e34fabff0f94498b91c, type: 3}
 --- !u!4 &1389335669
 Transform:
   m_ObjectHideFlags: 0
@@ -1022,3 +1105,4 @@ SceneRoots:
   - {fileID: 1389335669}
   - {fileID: 1693944020}
   - {fileID: 1783391435}
+  - {fileID: 733829216}

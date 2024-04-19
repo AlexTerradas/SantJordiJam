@@ -15,11 +15,16 @@ public class PlayerController : MonoBehaviour
     public RectTransform m_DancePoint;
     public float m_YMovementSpeed;
     public float m_XMovementSpeed;
+    float m_DirectionX;
     float m_MovementRange;
     float m_SongTimer;
 
     [Header("Timer")]
     public TextMeshProUGUI m_TimerText;
+
+    [Header("Puntuation")]
+    [SerializeField] private string[] pointsLevelText = {"FAIL", "OK", "GOOD", "PERFECT"};
+    [SerializeField] private PuntuationPopup puntuationTextPopup;
 
 	private void Awake()
 	{
@@ -34,9 +39,9 @@ public class PlayerController : MonoBehaviour
 
         Vector3 l_DancePointPos=m_DancePoint.localPosition;
         l_DancePointPos.y=Mathf.Sin(m_SongTimer*m_YMovementSpeed)*m_MovementRange;
-        if(Input.GetKey(KeyCode.LeftArrow))
+        if(m_DirectionX<0.0f)
             l_DancePointPos.x-=m_XMovementSpeed*Time.deltaTime;
-        else if(Input.GetKey(KeyCode.RightArrow))
+        else if(m_DirectionX>0.0f)
             l_DancePointPos.x+=m_XMovementSpeed*Time.deltaTime;
         l_DancePointPos.x=Mathf.Clamp(l_DancePointPos.x, 0.0f, m_PanelRight);
         m_DancePoint.localPosition=l_DancePointPos;
@@ -75,21 +80,34 @@ public class PlayerController : MonoBehaviour
 		//}
 
         float l_TimeToReachPoint=m_RythmPointController.GetCurrentRythmPoint().GetSongTime()-m_SongTimer;
-
         if(l_TimeToReachPoint<=m_RythmPointController.m_MissRangeToInteract)
-        {
             m_RythmPointController.SetTimingCircleSize(l_TimeToReachPoint);
-        }
-
-        if(Input.GetKeyDown(KeyCode.Space))
+    }
+    public void MovePointXAxis(float Direction)
+    {
+        m_DirectionX=Direction;
+    }
+    public void InteractWithPoint()
+    {
+        float l_TimeToReachPoint=m_RythmPointController.GetCurrentRythmPoint().GetSongTime()-m_SongTimer;
+        if(l_TimeToReachPoint<=m_RythmPointController.m_PerfectRangeToInteract && l_TimeToReachPoint>=-m_RythmPointController.m_PerfectRangeToInteract)
         {
-			if(l_TimeToReachPoint<=m_RythmPointController.m_MissRangeToInteract)
-            {
-                m_RythmPointController.GetCurrentRythmPoint().DisablePoint(true);
-                m_RythmPointController.IncreaseCurrentRythmPoint();
-            }
-		}
-
+            puntuationTextPopup.Constructor(m_RythmPointController.GetCurrentRythmPoint().transform, m_Panel, pointsLevelText[3], true);
+        }
+        else if(l_TimeToReachPoint<=m_RythmPointController.m_GoodRangeToInteract)
+        {
+            puntuationTextPopup.Constructor(m_RythmPointController.GetCurrentRythmPoint().transform, m_Panel, pointsLevelText[2], false);
+        }
+        else if(l_TimeToReachPoint<=m_RythmPointController.m_BadRangeToInteract)
+        {
+            puntuationTextPopup.Constructor(m_RythmPointController.GetCurrentRythmPoint().transform, m_Panel, pointsLevelText[1], false);
+        }
+        else if(l_TimeToReachPoint<=m_RythmPointController.m_MissRangeToInteract)
+        {
+            puntuationTextPopup.Constructor(m_RythmPointController.GetCurrentRythmPoint().transform, m_Panel, pointsLevelText[0], false);
+        }
+        m_RythmPointController.GetCurrentRythmPoint().DisablePoint(true);
+        m_RythmPointController.IncreaseCurrentRythmPoint();
     }
     public float GetMinPosX()
     {

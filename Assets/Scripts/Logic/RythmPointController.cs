@@ -113,6 +113,5 @@ public class RythmPointController : MonoBehaviour
         }
         float l_Pct=Mathf.InverseLerp(m_PerfectRangeToInteract, m_MissRangeToInteract, Distance);
         l_Point.SetTimingCircleSize(l_Pct);
-        Debug.Log(Distance+"   "+l_Pct);
     }
 }
