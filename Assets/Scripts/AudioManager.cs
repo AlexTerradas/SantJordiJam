@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         if (instance != null)
-            Debug.LogError("Found more than one Audio Manager in the scene");
+            Destroy(this);
         instance = this;
         DontDestroyOnLoad(this.gameObject);
     }
@@ -33,7 +33,7 @@ public class AudioManager : MonoBehaviour
         RuntimeManager.PlayOneShot(sound);
     }
     
-    public void PlayLoopSong(EventInstance song)
+    public void PlaySong(EventInstance song)
     {
         PLAYBACK_STATE playbackState;
         song.getPlaybackState(out playbackState);
@@ -41,9 +41,19 @@ public class AudioManager : MonoBehaviour
             song.start();
     }
 
-    public void StopLoopSong(EventInstance song)
+    public void StopSong(EventInstance song)
     {
         song.stop(STOP_MODE.ALLOWFADEOUT);
+    }
+
+    public void PauseSong(EventInstance song)
+    {
+        song.setPaused(true);
+    }
+
+    public void ResumeSong(EventInstance song)
+    {
+        song.setPaused(false);
     }
 
     public EventInstance CreateEventInstance(EventReference eventReference)
