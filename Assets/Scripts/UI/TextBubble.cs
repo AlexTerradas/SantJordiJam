@@ -56,6 +56,7 @@ public class TextBubble : MonoBehaviour
 
     public void DisableText()
     {
-        textMeshPro.enabled = false;
+        textMeshPro.enabled = false; 
+        textDisplayed = false;
     }
 }
