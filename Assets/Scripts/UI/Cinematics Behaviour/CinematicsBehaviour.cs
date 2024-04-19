@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,8 +16,9 @@ public class CinematicsBehaviour : MonoBehaviour
     [SerializeField] Cinematic finalA;
     [SerializeField] Cinematic finalB;
 
-    [Header("Cinematic Image")]
+    [Header("Cinematic Properties")]
     [SerializeField] Image image;
+    [SerializeField] TextBubble textBubble;
 
     [Header("Cinematics Canvas")]
     [SerializeField] GameObject introCinematics;
@@ -34,23 +36,37 @@ public class CinematicsBehaviour : MonoBehaviour
     {
         image.sprite = _cinematic.GetSprite();
 
-        if (_cinematic.GetHasInteraction())
+        if(_cinematic.GetStringEvent() != "")
         {
-            choiceCinematics.gameObject.SetActive(true);
-
-            while(!eventFired)
+            textBubble.OnDisplay(_cinematic.GetStringEvent());
+            while(!textBubble.GetTextDisplayed())
                 yield return new WaitForEndOfFrame();
 
-            eventFired = false;
-            choiceCinematics.gameObject.SetActive(false);
+            yield return new WaitForSeconds(_cinematic.GetTime());
         }
         else
-            yield return new WaitForSeconds(_cinematic.GetTime());
+        {
+            if (_cinematic.GetHasInteraction())
+            {
+                choiceCinematics.gameObject.SetActive(true);
+
+                while(!eventFired)
+                    yield return new WaitForEndOfFrame();
+
+                eventFired = false;
+                choiceCinematics.gameObject.SetActive(false);
+            }
+            else
+                yield return new WaitForSeconds(_cinematic.GetTime());
+        }
 
         if(cinematicImages.Count-1 > cinematicImages.IndexOf(_nextCinematic))
             StartCoroutine(ShowCinematic(_nextCinematic, cinematicImages[cinematicImages.IndexOf(_nextCinematic)+1]));
         else
+        {
+            // canviar linea d'abaix per passar a gameplay <-- AQUI DARO RATA! hihi
             introCinematics.SetActive(false);
+        }
     }
 
     /// <summary>
@@ -72,18 +88,5 @@ public class CinematicsBehaviour : MonoBehaviour
                 break;
         }
         eventFired = true;
-    }
-
-    public void ShowChoice()
-    {
-        switch (bitch)
-        {
-            case ChooseYourBitch.SantJordi:
-
-                break;
-            case ChooseYourBitch.Princesa:
-
-                break;
-        }
     }
 }
