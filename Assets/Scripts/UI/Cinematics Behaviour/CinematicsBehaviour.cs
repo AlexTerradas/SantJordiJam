@@ -43,6 +43,7 @@ public class CinematicsBehaviour : MonoBehaviour
                 yield return new WaitForEndOfFrame();
 
             yield return new WaitForSeconds(_cinematic.GetTime());
+            textBubble.DisableText();
         }
         else
         {
