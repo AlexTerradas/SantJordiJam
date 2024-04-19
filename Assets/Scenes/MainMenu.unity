@@ -399,6 +399,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &581203874 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7619702695431584661, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
+  m_PrefabInstance: {fileID: 1654422707075830358}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &649884538
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,6 +893,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1831598836924188085, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 640
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831598836924188085, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162364977329933910, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2929478163665396280, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -929,6 +952,12 @@ PrefabInstance:
     - target: {fileID: 3543230062055978729, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3754659880081615548, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
+      propertyPath: m_text
+      value: 'Marta Montes
+
+        MIXAMO'
       objectReference: {fileID: 0}
     - target: {fileID: 3892845047637588957, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1070,6 +1099,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4704941211797009541, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -295
+      objectReference: {fileID: 0}
     - target: {fileID: 5087728086255904719, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1094,6 +1127,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5677382967802772062, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
+      propertyPath: _windowedKey
+      value: DisplaySettingWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677382967802772062, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
+      propertyPath: _fullscreenKey
+      value: DisplaySettingFullScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677382967802772062, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
+      propertyPath: displayLocalizationEvent
+      value: 
+      objectReference: {fileID: 581203874}
     - target: {fileID: 6151701436321819140, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
