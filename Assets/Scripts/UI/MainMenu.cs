@@ -39,7 +39,7 @@ public class MainMenu : MonoBehaviour
     public void ChangeScene()
     {
         AudioManager.instance.StopSong(mainMenuSong);
-        SceneManager.LoadScene("CosasDaro");
+        SceneManager.LoadScene("CinematicTest");
     }
 
     public void AnimateCamera(string trigger)

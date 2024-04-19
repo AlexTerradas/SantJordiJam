@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +12,12 @@ public class EnterExitScene : MonoBehaviour
     void Start()
     {
         _fade = GetComponent<FadePanel>();
+        StartCoroutine(Test());
+    }
+
+    IEnumerator Test()
+    {
+        yield return new WaitForSeconds(0.5f);
         _fade.StartCoroutine(_fade.Fade(_blackCanvas, 1, 0, 0, _fadeDuration));
     }
 
