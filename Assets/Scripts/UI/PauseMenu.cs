@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-using System.Collections;
 using UnityEngine.InputSystem;
-using static UnityEngine.InputSystem.InputAction;
+using FMOD.Studio;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -10,21 +8,22 @@ public class PauseMenu : MonoBehaviour
     private PlayerInput playerInput;
     [SerializeField]
     private InputAction pauseAction;
-    [SerializeField] private float fadeDuration = 0.5f;
     [SerializeField] private CanvasGroup currentCanvas;
-    [SerializeField] private float fadeDelay = 0.5f;
-    
+    [SerializeField] private CanvasGroup backgroundCanvas;
+    [SerializeField] private float fadeDuration;
+    [SerializeField] private float fadeDelay;
+    private EventInstance inGameSong;
+    private FadePanel _fade;
     private bool _paused;
 
     private void Start()
     {
-        //Finished = false;
+        inGameSong = AudioManager.instance.CreateEventInstance(AudioManager.instance.Music);
+        AudioManager.instance.PlaySong(inGameSong);
+        _fade = GetComponent<FadePanel>();
         _paused = false;
-    }
-
-    void Update()
-    {
-
+        
+        Resume();
     }
     
     public void PauseGame()
@@ -46,8 +45,8 @@ public class PauseMenu : MonoBehaviour
     {
         currentCanvas.interactable = false;
         currentCanvas.blocksRaycasts = false;
-        StartCoroutine(Fade(currentCanvas, currentCanvas.alpha, 0));
-        StartCoroutine(Fade(newCanvas, currentCanvas.alpha, 1));
+        _fade.StartCoroutine(_fade.Fade(currentCanvas, currentCanvas.alpha, 0, 0, fadeDuration));
+        _fade.StartCoroutine(_fade.Fade(newCanvas, currentCanvas.alpha, 1, fadeDelay, fadeDuration));
         newCanvas.interactable = true;
         newCanvas.blocksRaycasts = true;
         currentCanvas = newCanvas;
@@ -56,20 +55,36 @@ public class PauseMenu : MonoBehaviour
     void Pause()
     {
         Time.timeScale = 0.0f;
-        StartCoroutine(Fade(currentCanvas, currentCanvas.alpha, 1));
+        _fade.StartCoroutine(_fade.Fade(backgroundCanvas, 0, 1, 0, 0.01f));
+        _fade.StartCoroutine(_fade.Fade(currentCanvas, 0, 1, 0, 0.01f));
+        AudioManager.instance.PauseSong(inGameSong);
         _paused = true;
     }
+    
     public void Resume()
     {
         Time.timeScale = 1.0f;
-        StartCoroutine(Fade(currentCanvas, currentCanvas.alpha, 0));
+        _fade.StartCoroutine(_fade.Fade(backgroundCanvas, 1, 0, 0, 0.01f));
+        _fade.StartCoroutine(_fade.Fade(currentCanvas, 1, 0, 0, 0.01f));
+        AudioManager.instance.ResumeSong(inGameSong);
         _paused = false;
     }
-    public void QuitGame()
+    
+    public void ButtonClick()
     {
-        Application.Quit();
+        AudioManager.instance.PlayOneShot(AudioManager.instance.ButtonClick);
     }
 
+    public void StopInGameSong()
+    {
+        AudioManager.instance.StopSong(inGameSong);
+    }
+    
+    //public void QuitGame()
+    //{
+    //    Application.Quit();
+    //}
+    
     // public void RestartGame()
     // {
     //     pauseMenuUI.SetActive(false);
@@ -95,25 +110,10 @@ public class PauseMenu : MonoBehaviour
 
     //     yield return new WaitForSeconds(2f);
     // }
-
-
-
+    
     // public void Fade()
     // {
     //     StartCoroutine(Fade(canvGroup, canvGroup.alpha, Faded ? 1 : 0));
     //     Faded = !Faded;
     // }
-    
-    //Cosita de canvi de menu
-    public IEnumerator Fade (CanvasGroup canvas, float start, float end)
-    {
-        float counter = 0f;
-        
-        while (counter < fadeDuration)
-        {
-            counter += Time.unscaledDeltaTime;
-            canvas.alpha = Mathf.Lerp(start, end, counter / fadeDuration);
-            yield return null;
-        }
-    }
 }

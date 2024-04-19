@@ -1,4 +1,5 @@
 using System.Collections;
+using FMOD.Studio;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -6,6 +7,10 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
     [SerializeField] private float _introTimer;
     private bool _playerWinning;
+
+    [SerializeField] private GameObject _princess;
+    [SerializeField] private GameObject _santJordi;
+    [SerializeField] private Transform enemyPoint;
     
     public delegate void PlayingState();
     public static event PlayingState onPlayingState;
@@ -25,6 +30,8 @@ public class GameManager : MonoBehaviour
     }
 
     public GameState gameState;
+
+    public ChooseYourBitch bitch;
     
     private void Awake()
     {
@@ -36,10 +43,15 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         gameState = GameState.Starting;
-        AudioManager.instance.PlayOneShot(AudioManager.instance.Music);
         StartCoroutine(StartPlayingState());
         StartCoroutine(StartEndingState());
         StartCoroutine(StartResultsState());
+
+        if (bitch == ChooseYourBitch.Princesa) Instantiate(_santJordi, enemyPoint.position, enemyPoint.rotation);
+        else Instantiate(_princess, enemyPoint.position, enemyPoint.rotation);
+        
+        //EventInstance inGameSong = AudioManager.instance.CreateEventInstance(AudioManager.instance.Music);
+        //AudioManager.instance.PlaySong(inGameSong);
     }
 
     IEnumerator StartPlayingState()

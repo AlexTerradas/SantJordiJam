@@ -39,11 +39,7 @@ public class CharacterAnimations : MonoBehaviour
     
     public IEnumerator DanceAnimation()
     {
-        int random = Random.Range(0, _danceParameters.Length);
-        if (random == _value)
-            StartCoroutine(DanceAnimation());
-        _value = random;
-        _animator.SetTrigger(_danceParameters[_value]);
+        _animator.SetTrigger(_danceParameters[GetRandomNumber()]);
         
         yield return new WaitForSeconds(_danceAnimationDelay);
         
@@ -79,5 +75,14 @@ public class CharacterAnimations : MonoBehaviour
             _animator.SetTrigger("Lose");
             AudioManager.instance.PlayOneShot(AudioManager.instance.LoseGame);
         }
+    }
+
+    public int GetRandomNumber()
+    {
+        int random = Random.Range(0, _danceParameters.Length);
+        if (random == _value)
+            GetRandomNumber();
+        _value = random;
+        return _value;
     }
 }

@@ -3,11 +3,15 @@ using FMOD.Studio;
 using FMODUnity;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _displayText;
+    [SerializeField] private LocalizeStringEvent displayLocalizationEvent;
+    [SerializeField] private string _windowedKey;
+    [SerializeField] private string _fullscreenKey;
+    //[SerializeField] private TMP_Text _displayText;
     [SerializeField] private TMP_Text _resolutionText;
     
     private Resolution[] _resolutions;
@@ -42,6 +46,8 @@ public class SettingsMenu : MonoBehaviour
 
         _sfxBus = RuntimeManager.GetBus("bus:/SFX");
         _musicBus = RuntimeManager.GetBus("bus:/Music");
+        
+        _resolutionText.text = _resolutionNames[_currentResolution];
     }
 
     private void Update()
@@ -79,7 +85,7 @@ public class SettingsMenu : MonoBehaviour
     public void SwapDisplayMode()
     {
         Screen.fullScreen = !Screen.fullScreen;
-        _displayText.text = Screen.fullScreen ? "Windowed" : "Fullscreen";
+        displayLocalizationEvent.SetEntry(Screen.fullScreen ? _windowedKey : _fullscreenKey);
     }
     
     public void IncreaseResolution()
