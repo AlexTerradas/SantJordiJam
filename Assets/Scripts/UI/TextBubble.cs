@@ -47,11 +47,15 @@ public class TextBubble : MonoBehaviour
         }
 
         textDisplayed = true;
-        textMeshPro.enabled = false;
     }
 
     public bool GetTextDisplayed()
     {
         return textDisplayed;
+    }
+
+    public void DisableText()
+    {
+        textMeshPro.enabled = false;
     }
 }
