@@ -8,13 +8,10 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 public class CinematicsBehaviour : MonoBehaviour
 {
-    [SerializeField] ChooseYourBitch bitch = ChooseYourBitch.NONE;
     [SerializeField] bool eventFired;
 
     [Header("Canvas images")]
     [SerializeField] List<Cinematic> cinematicImages;
-    [SerializeField] Cinematic finalA;
-    [SerializeField] Cinematic finalB;
 
     [Header("Cinematic Properties")]
     [SerializeField] Image image;
@@ -36,11 +33,11 @@ public class CinematicsBehaviour : MonoBehaviour
     {
         image.sprite = _cinematic.GetSprite();
 
-        if(_cinematic.GetStringEvent() != "")
+        if(_cinematic.GetHasStringEvent())
         {
             textBubble.OnDisplay(_cinematic.GetStringEvent());
             while(!textBubble.GetTextDisplayed())
-                yield return new WaitForEndOfFrame();
+                yield return new WaitForSeconds(0.1f);
 
             yield return new WaitForSeconds(_cinematic.GetTime());
             textBubble.DisableText();
@@ -52,7 +49,7 @@ public class CinematicsBehaviour : MonoBehaviour
                 choiceCinematics.gameObject.SetActive(true);
 
                 while(!eventFired)
-                    yield return new WaitForEndOfFrame();
+                    yield return new WaitForSeconds(0.1f);
 
                 eventFired = false;
                 choiceCinematics.gameObject.SetActive(false);
@@ -61,13 +58,10 @@ public class CinematicsBehaviour : MonoBehaviour
                 yield return new WaitForSeconds(_cinematic.GetTime());
         }
 
-        if(cinematicImages.Count-1 > cinematicImages.IndexOf(_nextCinematic))
+        if(cinematicImages.Count - 1 > cinematicImages.IndexOf(_nextCinematic))
             StartCoroutine(ShowCinematic(_nextCinematic, cinematicImages[cinematicImages.IndexOf(_nextCinematic)+1]));
         else
-        {
-            // canviar linea d'abaix per passar a gameplay <-- AQUI DARO RATA! hihi
-            introCinematics.SetActive(false);
-        }
+            GetComponent<EnterExitScene>().FadeOutAndChangeScene("CosasDaro");
     }
 
     /// <summary>
@@ -77,17 +71,7 @@ public class CinematicsBehaviour : MonoBehaviour
     /// <param name="_chooseYourBitch"></param>
     public void SelectYourChoice(int _chooseYourBitch)
     {
-        bitch = (ChooseYourBitch)_chooseYourBitch;
-        switch (_chooseYourBitch)
-        {
-            case 0:
-                cinematicImages.Add(finalA);
-                break;
-
-            case 1:
-                cinematicImages.Add(finalB);
-                break;
-        }
+        SantJordiJamLogic.GetLogic().SelectYourChoice((ChooseYourBitch)_chooseYourBitch);
         eventFired = true;
     }
 }

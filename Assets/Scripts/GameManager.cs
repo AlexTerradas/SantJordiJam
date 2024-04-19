@@ -47,8 +47,10 @@ public class GameManager : MonoBehaviour
         StartCoroutine(StartEndingState());
         StartCoroutine(StartResultsState());
 
-        if (bitch == ChooseYourBitch.Princesa) Instantiate(_santJordi, enemyPoint.position, enemyPoint.rotation);
-        else Instantiate(_princess, enemyPoint.position, enemyPoint.rotation);
+        if (SantJordiJamLogic.GetLogic().GetChooseYourBitch() == ChooseYourBitch.Princesa) 
+            Instantiate(_santJordi, enemyPoint.position, enemyPoint.rotation);
+        else 
+            Instantiate(_princess, enemyPoint.position, enemyPoint.rotation);
         
         //EventInstance inGameSong = AudioManager.instance.CreateEventInstance(AudioManager.instance.Music);
         //AudioManager.instance.PlaySong(inGameSong);

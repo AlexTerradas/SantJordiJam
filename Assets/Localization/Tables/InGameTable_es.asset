@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1034020110659584
-    m_Localized: "\xA1[Rival] te reto a una Batalla de Baile!"
+    m_Localized: "\xA1Princesa! Te reto a una Batalla de Baile!"
     m_Metadata:
       m_Items: []
   - m_Id: 1034430217121792
@@ -76,6 +76,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1458885305233408
     m_Localized: Fallado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4737763148828672
+    m_Localized: "\xA1Sant Jordi! Te reto a una Batalla de Baile!"
     m_Metadata:
       m_Items: []
   references:
