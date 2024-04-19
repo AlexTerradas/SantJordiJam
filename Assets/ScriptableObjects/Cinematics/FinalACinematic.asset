@@ -14,8 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 3da5ad3f74a136d4aaa64cc50a63a0e4, type: 3}
   time: 4
-  interaction: {fileID: 0}
-  unityEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  eventFired: 0
+  localizeStringEvent: {fileID: 0}
+  hasInteraction: 0

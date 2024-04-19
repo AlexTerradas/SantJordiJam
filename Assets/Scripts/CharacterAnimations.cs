@@ -1,49 +1,88 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CharacterAnimations : MonoBehaviour
 {
     [SerializeField] private string[] _danceParameters;
+    [SerializeField] private float _danceAnimationDelay;
+    [SerializeField] private float _mistakeAnimationDelay;
     private Animator _animator;
-    private float _danceAnimationDelay;
-    private float _mistakeAnimationDelay;
-    private int _dance;
+    private bool _mistake;
+    private int _value;
     
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        StartCoroutine(StartGame());
     }
 
-    public IEnumerator StartGame()
+    private void OnEnable()
     {
-        yield return new WaitForSeconds(11);
+        GameManager.onPlayingState += StartDancing;
+        GameManager.onEndingState += FinalAnimation;
+        GameManager.onResultsState += WinLoseAnimation;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.onPlayingState -= StartDancing;
+        GameManager.onEndingState -= FinalAnimation;
+        GameManager.onResultsState -= WinLoseAnimation;
+    }
+
+    public void StartDancing()
+    {
+        Debug.Log("La puta madre los eventos");
         StartCoroutine(DanceAnimation());
     }
-
+    
     public IEnumerator DanceAnimation()
     {
-        int random = Random.Range(0, _danceParameters.Length);
-        if (random == _dance)
-            StartCoroutine(DanceAnimation());
-        _dance = random;
-        _animator.SetTrigger(_danceParameters[_dance]);
+        _animator.SetTrigger(_danceParameters[GetRandomNumber()]);
         
         yield return new WaitForSeconds(_danceAnimationDelay);
-        StartCoroutine(DanceAnimation());
+        
+        if (GameManager.instance.gameState == GameManager.GameState.Playing && !_mistake)
+            StartCoroutine(DanceAnimation());
     }
 
     public IEnumerator MistakeAnimation()
     {
+        _mistake = true;
         _animator.SetTrigger("Dizzy");
-        
         yield return new WaitForSeconds(_mistakeAnimationDelay);
-        StartCoroutine(DanceAnimation());
+        _mistake = false;
+        
+        if (GameManager.instance.gameState == GameManager.GameState.Playing) 
+            StartCoroutine(DanceAnimation());
     }
 
     public void FinalAnimation()
     {
         _animator.SetTrigger("FinalPose");
+    }
+    
+    public void WinLoseAnimation(bool win)
+    {
+        if (win)
+        {
+            _animator.SetTrigger("Win");
+            AudioManager.instance.PlayOneShot(AudioManager.instance.WinGame);
+        }
+        else
+        {
+            _animator.SetTrigger("Lose");
+            AudioManager.instance.PlayOneShot(AudioManager.instance.LoseGame);
+        }
+    }
+
+    public int GetRandomNumber()
+    {
+        int random = Random.Range(0, _danceParameters.Length);
+        if (random == _value)
+            GetRandomNumber();
+        _value = random;
+        return _value;
     }
 }

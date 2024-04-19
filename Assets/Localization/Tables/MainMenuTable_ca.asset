@@ -102,6 +102,10 @@ MonoBehaviour:
     m_Localized: Continuar
     m_Metadata:
       m_Items: []
+  - m_Id: 4675629936033792
+    m_Localized: Pantalla completa
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
