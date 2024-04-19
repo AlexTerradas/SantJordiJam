@@ -41,20 +41,24 @@ public class CinematicsBehaviour : MonoBehaviour
             textBubble.OnDisplay(_cinematic.GetStringEvent());
             while(!textBubble.GetTextDisplayed())
                 yield return new WaitForEndOfFrame();
-        }
 
-        if (_cinematic.GetHasInteraction())
-        {
-            choiceCinematics.gameObject.SetActive(true);
-
-            while(!eventFired)
-                yield return new WaitForEndOfFrame();
-
-            eventFired = false;
-            choiceCinematics.gameObject.SetActive(false);
+            yield return new WaitForSeconds(_cinematic.GetTime());
         }
         else
-            yield return new WaitForSeconds(_cinematic.GetTime());
+        {
+            if (_cinematic.GetHasInteraction())
+            {
+                choiceCinematics.gameObject.SetActive(true);
+
+                while(!eventFired)
+                    yield return new WaitForEndOfFrame();
+
+                eventFired = false;
+                choiceCinematics.gameObject.SetActive(false);
+            }
+            else
+                yield return new WaitForSeconds(_cinematic.GetTime());
+        }
 
         if(cinematicImages.Count-1 > cinematicImages.IndexOf(_nextCinematic))
             StartCoroutine(ShowCinematic(_nextCinematic, cinematicImages[cinematicImages.IndexOf(_nextCinematic)+1]));

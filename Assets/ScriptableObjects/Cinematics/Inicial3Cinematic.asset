@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Inicial3Cinematic
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 19dc21134d5901840870f9157ce01820, type: 3}
-  time: 4
-  localizeStringEvent: InGameTable/CinematicaInicial1
+  time: 2
+  localizeStringEvent: CinematicaInicial1
   hasInteraction: 0

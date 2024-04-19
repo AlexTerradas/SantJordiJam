@@ -1,32 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
+using UnityEngine.Localization.Tables;
 
 public class TextBubble : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI textMeshPro;
     [SerializeField] float letterDelay = 0.1f;
-    [SerializeField] bool textDisplayed = false;
+    [SerializeField] bool textDisplayed = false; 
+    string _text;
 
     public void OnDisplay(string text)
     {
-        GetComponent<LocalizeStringEvent>().StringReference.SetReference("InGameTable", text); // PETA AQUESTA MERDA
+        textMeshPro.enabled = false;
+        LocalizedString _localizedStringe= GetComponent<LocalizeStringEvent>().StringReference;
+
+        _localizedStringe.TableReference = "InGameTable";
+        _localizedStringe.TableEntryReference = text;
+
+        StartCoroutine(WaitForText());
+    }
+
+    IEnumerator WaitForText()
+    {
+        yield return new WaitForSeconds(0.15f);
+        _text = textMeshPro.text;
+        yield return new WaitForSeconds(0.05f);
         StartCoroutine(ShowTextWithSound());
     }
 
     IEnumerator ShowTextWithSound()
     {
-        textDisplayed = false;
-        
-        string _text = textMeshPro.text;
-        textMeshPro.enabled = true;
-
-        yield return new WaitForSeconds(0.25f);
         textMeshPro.text = "";
+        textDisplayed = false;
+        textMeshPro.enabled = true;
 
         for (int i = 0; i < _text.Length; i++)
         {
