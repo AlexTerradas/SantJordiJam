@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI m_TimerText;
 
     [Header("Score")]
-    public string[] pointsLevelText = {"FAIL", "OK", "GOOD", "PERFECT"};
+    public string[] pointsLevelKey;
     [SerializeField] 
     private PuntuationPopup puntuationTextPopup;
     public TextMeshProUGUI m_ScoreText;
@@ -77,22 +78,22 @@ public class PlayerController : MonoBehaviour
         float l_TimeToReachPoint=m_RythmPointController.GetCurrentRythmPoint().GetSongTime()-m_SongTimer;
         if(l_TimeToReachPoint<=m_RythmPointController.m_PerfectRangeToInteract && l_TimeToReachPoint>=-m_RythmPointController.m_PerfectRangeToInteract)
         {
-            ShowPointScoreParticles(pointsLevelText[3], true);
+            ShowPointScoreParticles(pointsLevelKey[3], true);
             AddScore(m_RythmPointController.m_PerfectPointScore);
         }
         else if(l_TimeToReachPoint<=m_RythmPointController.m_GoodRangeToInteract)
         {
-            ShowPointScoreParticles(pointsLevelText[2], false);
+            ShowPointScoreParticles(pointsLevelKey[2], false);
             AddScore(m_RythmPointController.m_GoodPointScore);
         }
         else if(l_TimeToReachPoint<=m_RythmPointController.m_BadRangeToInteract)
         {
-            ShowPointScoreParticles(pointsLevelText[1], false);
+            ShowPointScoreParticles(pointsLevelKey[1], false);
             AddScore(m_RythmPointController.m_BadPointScore);
         }
         else if(l_TimeToReachPoint<=m_RythmPointController.m_MissRangeToInteract)
         {
-            ShowPointScoreParticles(pointsLevelText[0], false);
+            ShowPointScoreParticles(pointsLevelKey[0], false);
         }
         m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
         m_RythmPointController.IncreaseCurrentRythmPoint();

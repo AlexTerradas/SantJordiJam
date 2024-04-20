@@ -142,7 +142,7 @@ public class RythmPointController : MonoBehaviour
                 l_Point.m_TimingCircle.gameObject.SetActive(true);
             if(l_TimeToReachPoint<=-m_PerfectRangeToInteract)
             {
-                m_PlayerController.ShowPointScoreParticles(m_PlayerController.pointsLevelText[0], false);
+                m_PlayerController.ShowPointScoreParticles(m_PlayerController.pointsLevelKey[0], false);
                 l_Point.DisablePoint();
                 IncreaseCurrentRythmPoint();   
             }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Localization.Components;
 
 public class PuntuationPopup : MonoBehaviour
 {
@@ -22,10 +23,13 @@ public class PuntuationPopup : MonoBehaviour
     [SerializeField] private float disappearSpeed = 3.0f;
     [SerializeField] private int normalFontSize = 14;
     [SerializeField] private int perfectFontSize = 30;
+    private LocalizeStringEvent stringEvent;
+    
     private void Awake()
     {
         rectTransform = gameObject.GetComponent<RectTransform>();
         text = GetComponentInChildren<TextMeshProUGUI>();
+        stringEvent = GetComponentInChildren<LocalizeStringEvent>();
         //text = transform.GetComponent<TextMeshPro>();
     }
 
@@ -40,7 +44,8 @@ public class PuntuationPopup : MonoBehaviour
 
     public void Setup(string puntuationLevel, bool isPerfect)
     {
-        text.SetText(puntuationLevel);
+        stringEvent.SetEntry(puntuationLevel);
+        //text.SetText(puntuationLevel);
         
         if (isPerfect)
         {

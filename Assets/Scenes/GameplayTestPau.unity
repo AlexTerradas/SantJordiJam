@@ -824,11 +824,11 @@ MonoBehaviour:
   m_YMovementSpeed: 1
   m_XMovementSpeed: 400
   m_TimerText: {fileID: 959342866}
-  pointsLevelText:
-  - Fail
-  - OK
-  - Good
-  - Perfect
+  pointsLevelKey:
+  - Gameplay_Fallat
+  - Gameplay_Meh
+  - Gameplay_Be
+  - Gameplay_Perfecte
   puntuationTextPopup: {fileID: -7812609512217437000, guid: cf3410c588cb6e34fabff0f94498b91c, type: 3}
   m_ScoreText: {fileID: 1119892351}
 --- !u!4 &1389335669
@@ -1199,6 +1199,7 @@ MonoBehaviour:
   m_CompassDuration: 1.437126
   m_LimitOffset: 50
   m_MaxRandomRangeX: 150
+  m_MaxDistanceY: 0
   m_NextPointsOnScreen: 2
   m_CompassList:
   - m_CompassAmount: 12

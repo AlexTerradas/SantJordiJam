@@ -18,7 +18,7 @@ public class PlayerControllerTESTJOSEP : MonoBehaviour
  //   float m_MovementRange;
 
  //   [Header("Puntuation")]
- //   [SerializeField] private string[] pointsLevelText = {"FAIL", "OK", "GOOD", "PERFECT"};
+ //   [SerializeField] private string[] pointsLevelKey = {"FAIL", "OK", "GOOD", "PERFECT"};
  //   [SerializeField] private PuntuationPopup puntuationTextPopup;
 
 
@@ -27,7 +27,7 @@ public class PlayerControllerTESTJOSEP : MonoBehaviour
  //       m_MovementRange=m_Panel.offsetMax.y;
  //       m_PanelLeft=m_Panel.offsetMin.x;
  //       m_PanelRight=m_Panel.offsetMax.x-m_Panel.offsetMin.x;
- //       //puntuationTextPopup.Constructor(transform, m_Panel, pointsLevelText[2]);
+ //       //puntuationTextPopup.Constructor(transform, m_Panel, pointsLevelKey[2]);
 	//}
 	//void Update()
  //   {
@@ -50,20 +50,20 @@ public class PlayerControllerTESTJOSEP : MonoBehaviour
  //       if(l_DistanceToPointY<=m_RythmPointController.m_MissRangeToInteract)
  //       {
  //           m_RythmPointController.SetTimingCircleSize(l_DistanceToPointY);
- //           puntuationTextPopup.Constructor(m_RythmPointController.GetCurrentRythmPoint().transform, m_Panel, pointsLevelText[0], false);
+ //           puntuationTextPopup.Constructor(m_RythmPointController.GetCurrentRythmPoint().transform, m_Panel, pointsLevelKey[0], false);
  //       }
 
  //       if(l_TotalDistanceToPoint<=m_RythmPointController.m_PerfectRangeToInteract)
  //       {
- //           puntuationTextPopup.Constructor(m_RythmPointController.GetCurrentRythmPoint().transform, m_Panel, pointsLevelText[3], true);
+ //           puntuationTextPopup.Constructor(m_RythmPointController.GetCurrentRythmPoint().transform, m_Panel, pointsLevelKey[3], true);
  //       }
  //       else if(l_TotalDistanceToPoint<=m_RythmPointController.m_GoodRangeToInteract)
  //       {
- //           puntuationTextPopup.Constructor(m_RythmPointController.GetCurrentRythmPoint().transform, m_Panel, pointsLevelText[2], false);
+ //           puntuationTextPopup.Constructor(m_RythmPointController.GetCurrentRythmPoint().transform, m_Panel, pointsLevelKey[2], false);
  //       }
  //       else if(l_TotalDistanceToPoint<=m_RythmPointController.m_BadRangeToInteract)
  //       {
- //           puntuationTextPopup.Constructor(m_RythmPointController.GetCurrentRythmPoint().transform, m_Panel, pointsLevelText[1], false);
+ //           puntuationTextPopup.Constructor(m_RythmPointController.GetCurrentRythmPoint().transform, m_Panel, pointsLevelKey[1], false);
  //       }
 
  //       if(Input.GetKeyDown(KeyCode.Space))
@@ -79,7 +79,7 @@ public class PlayerControllerTESTJOSEP : MonoBehaviour
 
  //       // if(Input.GetMouseButtonDown(0))
  //       // {
- //       //     puntuationTextPopup.Constructor(transform, m_Panel, pointsLevelText[0], false);
+ //       //     puntuationTextPopup.Constructor(transform, m_Panel, pointsLevelKey[0], false);
  //       // }
  //   }
  //   public float GetMinPosX()
