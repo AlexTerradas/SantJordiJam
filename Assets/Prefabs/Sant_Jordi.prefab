@@ -209,6 +209,7 @@ MonoBehaviour:
   - Dance 6
   _danceAnimationDelay: 5
   _mistakeAnimationDelay: 3
+  _isNPC: 1
 --- !u!114 &7334389000156322564
 MonoBehaviour:
   m_ObjectHideFlags: 0

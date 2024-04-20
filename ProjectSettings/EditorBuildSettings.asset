@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 5d5bc7d6df64e254db9915b7ae77b8fd
   - enabled: 1
-    path: Assets/Scenes/CinematicTest.unity
+    path: Assets/Scenes/CinematicScene.unity
     guid: 32081d4d0e6ccc846aa782da86b8c092
   - enabled: 1
     path: Assets/Scenes/CosasDaro.unity
     guid: c137b52321f425a4d97b531a61d9e71f
+  - enabled: 1
+    path: Assets/Scenes/EndCinematicScene.unity
+    guid: 71834c92d8e15854a90e12435f3a0382
   - enabled: 0
     path: Assets/Scenes/Game.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
