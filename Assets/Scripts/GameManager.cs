@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
     IEnumerator StartResultsState()
     {
         //yield return new WaitForSeconds(35);
-        yield return new WaitForSeconds(185f);
+        yield return new WaitForSeconds(183f);
         gameState = GameState.Results;
         if (playerScore >= scoreNeededToWin)
         {
@@ -99,6 +99,6 @@ public class GameManager : MonoBehaviour
             _playerWinning = false;
             Instantiate(_canvasLose);
         }
-        onResultsState(_playerWinning); //Revisar IA enemics
+        onResultsState(_playerWinning);
     }
 }

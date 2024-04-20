@@ -153,9 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _introTimer: 11.5
-  playerScore: 50
-  maxScore: 100
-  scoreNeededToWin: 50
+  playerScore: 0
+  maxScore: 0
+  scoreNeededToWin: 0
   _canvasWin: {fileID: 5843323362185095992, guid: ef461dd9454541047b59173c4af08c56, type: 3}
   _canvasLose: {fileID: 7058894951921076105, guid: 009a3f77d29bad94398646aaac6a59f5, type: 3}
   _princess: {fileID: 7439984317878121384, guid: 2c09e31dd0acfde49b227d9423a6b483, type: 3}

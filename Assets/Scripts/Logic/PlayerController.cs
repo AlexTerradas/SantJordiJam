@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour
     void AddScore(int Score)
     {
         m_CurrentScore+=Score;
+        GameManager.instance.playerScore = m_CurrentScore;
         m_ScoreText.SetText(m_CurrentScore.ToString()+" - "+(m_CurrentScore/m_RythmPointController.GetMaxScore()*100.0f).ToString("#.00")+"%");
     }
 }

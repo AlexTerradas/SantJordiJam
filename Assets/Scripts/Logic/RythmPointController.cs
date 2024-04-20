@@ -92,7 +92,9 @@ public class RythmPointController : MonoBehaviour
         m_MaxScore=m_Points.Count*m_PerfectPointScore;
         m_ScoreNeeded=m_MaxScore*m_ScoreNeededPct;
         m_PlayerController.m_DancePoint.SetAsLastSibling();
-	}
+        GameManager.instance.maxScore = m_MaxScore;
+        GameManager.instance.scoreNeededToWin = m_ScoreNeeded;
+    }
     public RythmPoint GetPointByIndex(int Index)
     {
         return m_Points[Index];
