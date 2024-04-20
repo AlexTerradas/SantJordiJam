@@ -17,8 +17,8 @@ public class DiscoLight : MonoBehaviour
 
         yield return new WaitForSeconds(duration);
 
-        //if (true)
-        if (GameManager.instance.gameState == GameManager.GameState.Playing && GameManager.instance.gameState == GameManager.GameState.Starting)
+        if (true)
+        //if (GameManager.instance.gameState == GameManager.GameState.Playing && GameManager.instance.gameState == GameManager.GameState.Starting)
         {
             StartCoroutine(FlashColor(lightDuration));
         }
