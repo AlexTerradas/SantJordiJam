@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 1352217875}
   m_IndirectSpecularColor: {r: 0.18028554, g: 0.22571614, b: 0.30692452, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 141ad7ea7cc53764dab016267ec7d0fa, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &85869331
 Transform:
   m_ObjectHideFlags: 0
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c1afc0cb06e0849a72a42a6bed48c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 10
+  rotationSpeed: 60
 --- !u!1 &448115217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1687,7 +1687,7 @@ Transform:
   m_GameObject: {fileID: 1352217874}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3420201, y: 0, z: 0, w: 0.9396927}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1768,7 +1768,11 @@ MonoBehaviour:
   m_YMovementSpeed: 1
   m_XMovementSpeed: 400
   m_TimerText: {fileID: 959342866}
-  pointsLevelKey: []
+  pointsLevelKey:
+  - Gameplay_Fallat
+  - Gameplay_Meh
+  - Gameplay_Be
+  - Gameplay_Perfecte
   puntuationTextPopup: {fileID: -7812609512217437000, guid: cf3410c588cb6e34fabff0f94498b91c, type: 3}
   m_ScoreText: {fileID: 1119892351}
 --- !u!4 &1389335669
@@ -2483,6 +2487,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2426065355654765349, guid: 338c4e4b256af6a4387b600d53564259, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5365795651235643686, guid: 338c4e4b256af6a4387b600d53564259, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -2948,7 +2956,7 @@ MonoBehaviour:
   m_CompassDuration: 1.437126
   m_LimitOffset: 50
   m_MaxRandomRangeX: 150
-  m_MaxDistanceY: 0
+  m_MaxDistanceY: 100
   m_NextPointsOnScreen: 2
   m_CompassList:
   - m_CompassAmount: 12
