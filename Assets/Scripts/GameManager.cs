@@ -1,6 +1,4 @@
 using System.Collections;
-using FMOD.Studio;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -59,7 +57,7 @@ public class GameManager : MonoBehaviour
         else 
             Instantiate(_princess, enemyPoint.position, enemyPoint.rotation);
         
-        //EventInstance inGameSong = AudioManager.instance.CreateEventInstance(AudioManager.instance.Music);
+        //EventInstance inGameSong = AudioManager.instance.CreateEventInstance(AudioManager.instance.InGameSong);
         //AudioManager.instance.PlaySong(inGameSong);
     }
 
@@ -80,14 +78,16 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartEndingState()
     {
-        yield return new WaitForSeconds(180);
+        yield return new WaitForSeconds(30);
+        //yield return new WaitForSeconds(180);
         gameState = GameState.Ending;
         onEndingState();
     }
 
     IEnumerator StartResultsState()
     {
-        yield return new WaitForSeconds(185f);
+        yield return new WaitForSeconds(35);
+        //yield return new WaitForSeconds(185f);
         gameState = GameState.Results;
         if (playerScore >= scoreNeededToWin)
         {

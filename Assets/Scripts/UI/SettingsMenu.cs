@@ -11,7 +11,6 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private LocalizeStringEvent displayLocalizationEvent;
     [SerializeField] private string _windowedKey;
     [SerializeField] private string _fullscreenKey;
-    //[SerializeField] private TMP_Text _displayText;
     [SerializeField] private TMP_Text _resolutionText;
     
     private Resolution[] _resolutions;

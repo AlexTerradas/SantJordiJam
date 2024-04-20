@@ -18,17 +18,20 @@ public class FinalPopup : MonoBehaviour
 
     public void MainMenu()
     {
+        AudioManager.instance.StopSong(AudioManager.instance.inGameSong);
         enterExitScene.FadeOutAndChangeScene("MainMenu");
     }
 
     public void Continue()
     {
+        AudioManager.instance.StopSong(AudioManager.instance.inGameSong);
         enterExitScene.FadeOutAndChangeScene("EndCinematicScene");
     }
 
     public void Restart()
     {
-        enterExitScene.FadeOutAndChangeScene(SceneManager.GetActiveScene().ToString());
+        AudioManager.instance.StopSong(AudioManager.instance.inGameSong);
+        enterExitScene.FadeOutAndChangeScene("CosesDaro");
     }
     
     public void ButtonClick()

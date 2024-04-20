@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
-using FMOD.Studio;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -12,18 +11,16 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private CanvasGroup backgroundCanvas;
     [SerializeField] private float fadeDuration;
     [SerializeField] private float fadeDelay;
-    private EventInstance inGameSong;
     private FadePanel _fade;
     private bool _paused;
 
     private void Start()
     {
-        inGameSong = AudioManager.instance.CreateEventInstance(AudioManager.instance.Music);
-        AudioManager.instance.PlaySong(inGameSong);
+        AudioManager.instance.PlaySong(AudioManager.instance.inGameSong);
         _fade = GetComponent<FadePanel>();
+        _fade.StartCoroutine(_fade.Fade(backgroundCanvas, 1, 0, 0, 0.01f));
+        _fade.StartCoroutine(_fade.Fade(currentCanvas, 1, 0, 0, 0.01f));
         _paused = false;
-        
-        Resume();
     }
     
     public void PauseGame()
@@ -57,7 +54,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0.0f;
         _fade.StartCoroutine(_fade.Fade(backgroundCanvas, 0, 1, 0, 0.01f));
         _fade.StartCoroutine(_fade.Fade(currentCanvas, 0, 1, 0, 0.01f));
-        AudioManager.instance.PauseSong(inGameSong);
+        AudioManager.instance.PlayOneShot(AudioManager.instance.PauseOn);
+        AudioManager.instance.PauseSong(AudioManager.instance.inGameSong);
         _paused = true;
     }
     
@@ -66,7 +64,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1.0f;
         _fade.StartCoroutine(_fade.Fade(backgroundCanvas, 1, 0, 0, 0.01f));
         _fade.StartCoroutine(_fade.Fade(currentCanvas, 1, 0, 0, 0.01f));
-        AudioManager.instance.ResumeSong(inGameSong);
+        AudioManager.instance.PlayOneShot(AudioManager.instance.PauseOff);
+        AudioManager.instance.ResumeSong(AudioManager.instance.inGameSong);
         _paused = false;
     }
     
@@ -77,7 +76,7 @@ public class PauseMenu : MonoBehaviour
 
     public void StopInGameSong()
     {
-        AudioManager.instance.StopSong(inGameSong);
+        AudioManager.instance.StopSong(AudioManager.instance.inGameSong);
     }
     
     //public void QuitGame()

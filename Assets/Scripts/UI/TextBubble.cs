@@ -44,6 +44,7 @@ public class TextBubble : MonoBehaviour
         {
             textMeshPro.text += _text[i];
             yield return new WaitForSeconds(letterDelay);
+            AudioManager.instance.PlayOneShot(AudioManager.instance.DialogueBoop);
         }
 
         textDisplayed = true;
