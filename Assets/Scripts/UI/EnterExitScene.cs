@@ -12,6 +12,7 @@ public class EnterExitScene : MonoBehaviour
     void Start()
     {
         _fade = GetComponent<FadePanel>();
+        _blackCanvas.alpha = 1;
         StartCoroutine(Test());
     }
 
