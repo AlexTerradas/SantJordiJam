@@ -47,7 +47,7 @@ public class SettingsMenu : MonoBehaviour
         _sfxBus = RuntimeManager.GetBus("bus:/SFX");
         _musicBus = RuntimeManager.GetBus("bus:/Music");
         
-        _resolutionText.text = _resolutionNames[_currentResolution];
+        _resolutionText.text = Screen.currentResolution.width + "x" + Screen.currentResolution.height;
     }
 
     private void Update()
