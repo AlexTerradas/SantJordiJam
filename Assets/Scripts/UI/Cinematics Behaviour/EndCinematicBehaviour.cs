@@ -7,9 +7,10 @@ public class EndCinematicBehaviour : MonoBehaviour
 {
     [SerializeField] Cinematic endCinematic;
     [SerializeField] Image image;
-
+    
     void Awake()
     {
+        AudioManager.instance.PlaySong(AudioManager.instance.cinematicSong);
         endCinematic = SantJordiJamLogic.GetLogic().GetEndCinematic();
         StartCoroutine(ShowEndCinematic());
     }
@@ -18,6 +19,7 @@ public class EndCinematicBehaviour : MonoBehaviour
     {
         image.sprite = endCinematic.GetSprite();
         yield return new WaitForSeconds(endCinematic.GetTime());
+        AudioManager.instance.StopSong(AudioManager.instance.cinematicSong);
         GetComponent<EnterExitScene>().FadeOutAndChangeScene("MainMenu");
     }
 }

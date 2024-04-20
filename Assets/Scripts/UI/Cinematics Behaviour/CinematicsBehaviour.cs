@@ -1,11 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
+
 public class CinematicsBehaviour : MonoBehaviour
 {
     [SerializeField] bool eventFired;
@@ -20,12 +17,13 @@ public class CinematicsBehaviour : MonoBehaviour
     [Header("Cinematics Canvas")]
     [SerializeField] GameObject introCinematics;
     [SerializeField] GameObject choiceCinematics;
-
+    
     void Awake()
     {
         if (cinematicImages != null)
         {
             StartCoroutine(ShowCinematic(cinematicImages[0], cinematicImages[1]));
+            AudioManager.instance.PlaySong(AudioManager.instance.cinematicSong);
         }
     }
 
@@ -61,7 +59,10 @@ public class CinematicsBehaviour : MonoBehaviour
         if(cinematicImages.Count - 1 > cinematicImages.IndexOf(_nextCinematic))
             StartCoroutine(ShowCinematic(_nextCinematic, cinematicImages[cinematicImages.IndexOf(_nextCinematic)+1]));
         else
+        {
+            AudioManager.instance.StopSong(AudioManager.instance.cinematicSong);
             GetComponent<EnterExitScene>().FadeOutAndChangeScene("CosasDaro");
+        }
     }
 
     /// <summary>
