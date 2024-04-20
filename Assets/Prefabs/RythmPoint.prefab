@@ -167,9 +167,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_KeyText: {fileID: 8825917972660027196}
   m_TimingCircle: {fileID: 1606110369853923878}
-  m_OrderIndex: 0
-  m_MaxWidth: 150
+  m_MaxWidth: 200
   m_MinWidth: 50
+  m_MinCircleOpacity: 0.3
 --- !u!1 &7027087394983769453
 GameObject:
   m_ObjectHideFlags: 0

@@ -99,8 +99,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 1024
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -195,7 +195,6 @@ MonoBehaviour:
   prefab: {fileID: 8594749087084886059}
   text: {fileID: 4424566339426612831}
   damagePopupPosition: {fileID: 7101307233325561501}
-  textCurrentColor: {r: 1, g: 0, b: 0.74723196, a: 1}
   normalColor: {r: 0, g: 0.09069872, b: 1, a: 1}
   perfectColor: {r: 1, g: 0.027672831, b: 0, a: 1}
   speedX: 20
