@@ -7,7 +7,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance { get; private set; }
     [SerializeField] private float _introTimer;
+    public float playerScore;
+    public float maxScore;
+    public float scoreNeededToWin;
     private bool _playerWinning;
+
+    [SerializeField] private GameObject _canvasWin;
+    [SerializeField] private GameObject _canvasLose;
 
     [SerializeField] private GameObject _princess;
     [SerializeField] private GameObject _santJordi;
@@ -48,7 +54,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(StartEndingState());
         StartCoroutine(StartResultsState());
 
-        if (SantJordiJamLogic.GetLogic().GetChooseYourBitch() == ChooseYourBitch.Princesa) 
+        if (SantJordiJamLogic.GetLogic().GetChooseYourBitch() == ChooseYourBitch.Princesa)
             Instantiate(_santJordi, enemyPoint.position, enemyPoint.rotation);
         else 
             Instantiate(_princess, enemyPoint.position, enemyPoint.rotation);
@@ -83,6 +89,16 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(185f);
         gameState = GameState.Results;
-        onResultsState(_playerWinning);
+        if (playerScore >= scoreNeededToWin)
+        {
+            _playerWinning = true;
+            Instantiate(_canvasWin);
+        }
+        else
+        {
+            _playerWinning = false;
+            Instantiate(_canvasLose);
+        }
+        onResultsState(_playerWinning); //Revisar IA enemics
     }
 }
