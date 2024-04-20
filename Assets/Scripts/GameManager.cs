@@ -78,16 +78,16 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartEndingState()
     {
-        yield return new WaitForSeconds(30);
-        //yield return new WaitForSeconds(180);
+        //yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(180);
         gameState = GameState.Ending;
         onEndingState();
     }
 
     IEnumerator StartResultsState()
     {
-        yield return new WaitForSeconds(35);
-        //yield return new WaitForSeconds(185f);
+        //yield return new WaitForSeconds(35);
+        yield return new WaitForSeconds(185f);
         gameState = GameState.Results;
         if (playerScore >= scoreNeededToWin)
         {
