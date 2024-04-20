@@ -1311,25 +1311,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MainMenuSong>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1575503460
+      Data2: 1211473123
+      Data3: -1838117978
+      Data4: -2101675941
+    Path: event:/MainMenu
   <InGameSong>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1023229824
+      Data2: 1119250878
+      Data3: 1823657868
+      Data4: 229086044
+    Path: event:/InGame
   <CinematicSong>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1684312617
+      Data2: 1168663694
+      Data3: 1933738913
+      Data4: -571518331
+    Path: event:/CinematicSong
   <ButtonHover>k__BackingField:
     Guid:
       Data1: -1369307570

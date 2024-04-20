@@ -56,10 +56,10 @@ public class RythmPoint : MonoBehaviour
     {
         return m_RectTransform.localPosition;
     }
-    public void SetPosition(float Time, float PosX)
+    public void SetPosition(float Time, float MovSpeed, float Range, float PosX)
     {
         Vector3 l_LocalPosition=m_RectTransform.localPosition;
-        l_LocalPosition.y=Mathf.Sin(Time*1.0f)*360.0f;
+        l_LocalPosition.y=Mathf.Sin(Time*MovSpeed)*Range;
         l_LocalPosition.x=PosX;
         m_RectTransform.localPosition=l_LocalPosition;
     }

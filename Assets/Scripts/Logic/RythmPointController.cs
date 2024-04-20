@@ -15,6 +15,7 @@ public class RythmPointController : MonoBehaviour
     public float m_CompassDuration;
     public float m_LimitOffset;
     public int m_MaxRandomRangeX;
+    public float m_MaxDistanceY;
     public int m_NextPointsOnScreen;
     public List<CCompassList> m_CompassList;
     List<RythmPoint> m_Points=new List<RythmPoint>();
@@ -36,7 +37,6 @@ public class RythmPointController : MonoBehaviour
     public int m_GoodPointScore;
     public int m_PerfectPointScore;
     
-
     [Header("References")]
     public GameObject m_RythmPointPrefab;
     public PlayerController m_PlayerController;
@@ -44,7 +44,9 @@ public class RythmPointController : MonoBehaviour
 	private void Start()
 	{
         float l_Time=0.0f;
-        float l_RandomPosX=Random.Range(m_PlayerController.GetMinPosX()+m_LimitOffset, m_PlayerController.GetMaxPosX()-m_LimitOffset);
+        float l_RandomPosX=m_PlayerController.GetMaxPosX()/2;
+        float l_LastPosY=0.0f;
+        //float l_LastPosX=0.0f;
 		for(int i=0; i<m_CompassList.Count; ++i)
         {
             float l_PointsToSpawn=m_CompassList[i].m_Bpms.Count;
@@ -60,12 +62,20 @@ public class RythmPointController : MonoBehaviour
 				    GameObject l_RythmPoint=Instantiate(m_RythmPointPrefab, transform.position, transform.rotation, m_PlayerController.m_Panel);
 				    RythmPoint l_RythmPointScript=l_RythmPoint.GetComponent<RythmPoint>();
                     l_RythmPointScript.SetSongTime(l_Time);
-				    l_RythmPointScript.SetPosition(l_Time, l_RandomPosX);
-                    l_RandomPosX=Random.Range(l_RandomPosX-m_MaxRandomRangeX, l_RandomPosX+m_MaxRandomRangeX);
+                    float l_DistanceY=Mathf.Abs((Mathf.Sin(l_Time*m_PlayerController.GetMovementSpeedY())*m_PlayerController.GetMovementRange())-l_LastPosY);
+                    float l_RandomRangeXPct=Mathf.InverseLerp(0.0f, m_MaxDistanceY, l_DistanceY); 
+                    if(l_RandomRangeXPct<=0.0f)
+                        l_RandomRangeXPct=0.1f;
+                    l_RandomPosX=Random.Range(l_RandomPosX-m_MaxRandomRangeX*l_RandomRangeXPct, l_RandomPosX+m_MaxRandomRangeX*l_RandomRangeXPct);
                     if(l_RandomPosX<=m_PlayerController.GetMinPosX()+m_LimitOffset)
                         l_RandomPosX=Random.Range(m_PlayerController.GetMinPosX()+m_LimitOffset, m_PlayerController.GetMinPosX()+m_LimitOffset+m_MaxRandomRangeX);
                     else if(l_RandomPosX>=m_PlayerController.GetMaxPosX()-m_LimitOffset)
                         l_RandomPosX=Random.Range(m_PlayerController.GetMaxPosX()-m_LimitOffset-m_MaxRandomRangeX, m_PlayerController.GetMaxPosX()-m_LimitOffset);
+                    //Debug.Log("Pct: "+l_RandomRangeXPct+"  CurrentY: "+(Mathf.Sin(l_Time*m_PlayerController.GetMovementSpeedY())*m_PlayerController.GetMovementRange())+
+                    //    "  LastY:"+l_LastPosY+"   CurrentX: "+l_RandomPosX+"   LastX: "+l_LastPosX+"   Distance: "+l_DistanceY);
+				    l_RythmPointScript.SetPosition(l_Time, m_PlayerController.GetMovementSpeedY(), m_PlayerController.GetMovementRange(), l_RandomPosX);
+                    l_LastPosY=l_RythmPointScript.GetPosition().y;
+                    //l_LastPosX=l_RythmPointScript.GetPosition().x;
 			        l_RythmPoint.SetActive(false);
 				    m_Points.Add(l_RythmPointScript);
 			    }
@@ -81,7 +91,10 @@ public class RythmPointController : MonoBehaviour
         }
         m_MaxScore=m_Points.Count*m_PerfectPointScore;
         m_ScoreNeeded=m_MaxScore*m_ScoreNeededPct;
-	}
+        m_PlayerController.m_DancePoint.SetAsLastSibling();
+        GameManager.instance.maxScore = m_MaxScore;
+        GameManager.instance.scoreNeededToWin = m_ScoreNeeded;
+    }
     public RythmPoint GetPointByIndex(int Index)
     {
         return m_Points[Index];
@@ -131,7 +144,7 @@ public class RythmPointController : MonoBehaviour
                 l_Point.m_TimingCircle.gameObject.SetActive(true);
             if(l_TimeToReachPoint<=-m_PerfectRangeToInteract)
             {
-                m_PlayerController.ShowPointScoreParticles(m_PlayerController.pointsLevelText[0], false);
+                m_PlayerController.ShowPointScoreParticles(m_PlayerController.pointsLevelKey[0], false);
                 l_Point.DisablePoint();
                 IncreaseCurrentRythmPoint();   
             }

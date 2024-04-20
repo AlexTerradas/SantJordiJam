@@ -106,6 +106,10 @@ MonoBehaviour:
     m_Localized: Fullscreen
     m_Metadata:
       m_Items: []
+  - m_Id: 5085997954166784
+    m_Localized: How To Play
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

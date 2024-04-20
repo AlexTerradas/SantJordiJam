@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI m_TimerText;
 
     [Header("Score")]
-    public string[] pointsLevelText = {"FAIL", "OK", "GOOD", "PERFECT"};
+    public string[] pointsLevelKey;
     [SerializeField] 
     private PuntuationPopup puntuationTextPopup;
     public TextMeshProUGUI m_ScoreText;
@@ -57,21 +58,6 @@ public class PlayerController : MonoBehaviour
         
         //float l_DistanceToPointY=Mathf.Abs(l_PlayerPointPos.y-l_RythmPointPos.y);
         //float l_TotalDistanceToPoint=Vector2.Distance(l_RythmPointPos, l_PlayerPointPos);
-        
-        //if(l_DistanceToPointY<=m_RythmPointController.m_MissRangeToInteract)
-        //{
-        //          m_RythmPointController.SetTimingCircleSize(l_DistanceToPointY);
-        //}
-
-        //if(l_TotalDistanceToPoint<=m_RythmPointController.m_PerfectRangeToInteract)
-        //{
-        //}
-        //else if(l_TotalDistanceToPoint<=m_RythmPointController.m_GoodRangeToInteract)
-        //{
-        //}
-        //else if(l_TotalDistanceToPoint<=m_RythmPointController.m_BadRangeToInteract)
-        //{
-        //}
 
         //if(Input.GetKeyDown(KeyCode.Space))
         //{
@@ -82,7 +68,6 @@ public class PlayerController : MonoBehaviour
         //  }
 		//}
         m_RythmPointController.SetTimingCircles(m_SongTimer);
-        
     }
     public void MovePointXAxis(float Direction)
     {
@@ -93,22 +78,22 @@ public class PlayerController : MonoBehaviour
         float l_TimeToReachPoint=m_RythmPointController.GetCurrentRythmPoint().GetSongTime()-m_SongTimer;
         if(l_TimeToReachPoint<=m_RythmPointController.m_PerfectRangeToInteract && l_TimeToReachPoint>=-m_RythmPointController.m_PerfectRangeToInteract)
         {
-            ShowPointScoreParticles(pointsLevelText[3], true);
+            ShowPointScoreParticles(pointsLevelKey[3], true);
             AddScore(m_RythmPointController.m_PerfectPointScore);
         }
         else if(l_TimeToReachPoint<=m_RythmPointController.m_GoodRangeToInteract)
         {
-            ShowPointScoreParticles(pointsLevelText[2], false);
+            ShowPointScoreParticles(pointsLevelKey[2], false);
             AddScore(m_RythmPointController.m_GoodPointScore);
         }
         else if(l_TimeToReachPoint<=m_RythmPointController.m_BadRangeToInteract)
         {
-            ShowPointScoreParticles(pointsLevelText[1], false);
+            ShowPointScoreParticles(pointsLevelKey[1], false);
             AddScore(m_RythmPointController.m_BadPointScore);
         }
         else if(l_TimeToReachPoint<=m_RythmPointController.m_MissRangeToInteract)
         {
-            ShowPointScoreParticles(pointsLevelText[0], false);
+            ShowPointScoreParticles(pointsLevelKey[0], false);
         }
         m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
         m_RythmPointController.IncreaseCurrentRythmPoint();
@@ -121,6 +106,14 @@ public class PlayerController : MonoBehaviour
     { 
         return m_PanelRight;
     }
+    public float GetMovementSpeedY()
+    {
+        return m_YMovementSpeed;
+    }
+    public float GetMovementRange()
+    {
+        return m_MovementRange;
+    }
     public void ShowPointScoreParticles(string Text, bool IsPerfect)
     {
         puntuationTextPopup.Constructor(m_RythmPointController.GetCurrentRythmPoint().transform, m_Panel, Text, IsPerfect);
@@ -128,6 +121,7 @@ public class PlayerController : MonoBehaviour
     void AddScore(int Score)
     {
         m_CurrentScore+=Score;
+        GameManager.instance.playerScore = m_CurrentScore;
         m_ScoreText.SetText(m_CurrentScore.ToString()+" - "+(m_CurrentScore/m_RythmPointController.GetMaxScore()*100.0f).ToString("#.00")+"%");
     }
 }
