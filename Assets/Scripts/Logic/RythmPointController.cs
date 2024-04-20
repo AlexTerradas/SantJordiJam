@@ -13,6 +13,7 @@ public class RythmPointController : MonoBehaviour
 {
     [Header("POINT GENERATOR")]
     public float m_CompassDuration;
+    public float m_StartDelay;
     public float m_LimitOffset;
     public int m_MaxRandomRangeX;
     public float m_MaxDistanceY;
@@ -24,10 +25,11 @@ public class RythmPointController : MonoBehaviour
     [Header("GAME PARAMETERS")]
     [Header("Point Interaction Range")]
     public float m_MinRangeToShowCircles;
-    public float m_MissRangeToInteract; 
-    public float m_BadRangeToInteract; 
-    public float m_GoodRangeToInteract; 
-    public float m_PerfectRangeToInteract;
+    public float m_MaxRangeToShowCircles;
+    public float m_MissPointRange; 
+    public float m_BadPointRange; 
+    public float m_GoodPointRange; 
+    public float m_PerfectPointRange; 
     [Header("Point Scores")]
     [Range(0.0f, 1.0f)]
     public float m_ScoreNeededPct;
@@ -43,9 +45,10 @@ public class RythmPointController : MonoBehaviour
 
 	private void Start()
 	{
-        float l_Time=0.0f;
+        float l_Time=m_StartDelay;
         float l_RandomPosX=m_PlayerController.GetMaxPosX()/2;
         float l_LastPosY=0.0f;
+        int l_SpriteIndex=0;
         //float l_LastPosX=0.0f;
 		for(int i=0; i<m_CompassList.Count; ++i)
         {
@@ -59,22 +62,32 @@ public class RythmPointController : MonoBehaviour
                     l_Time+=m_CompassList[i].m_Bpms[l_BpmsIndex];
                     l_RemainingTime-=m_CompassList[i].m_Bpms[l_BpmsIndex];
                     l_BpmsIndex++;
+
 				    GameObject l_RythmPoint=Instantiate(m_RythmPointPrefab, transform.position, transform.rotation, m_PlayerController.m_Panel);
 				    RythmPoint l_RythmPointScript=l_RythmPoint.GetComponent<RythmPoint>();
+
+                    l_RythmPointScript.SetSprite(l_SpriteIndex);
+                    if(l_SpriteIndex+1<l_RythmPointScript.m_Sprites.Count)
+                        l_SpriteIndex++;
+                    else
+                        l_SpriteIndex=0;
+
                     l_RythmPointScript.SetSongTime(l_Time);
+
                     float l_DistanceY=Mathf.Abs((Mathf.Sin(l_Time*m_PlayerController.GetMovementSpeedY())*m_PlayerController.GetMovementRange())-l_LastPosY);
                     float l_RandomRangeXPct=Mathf.InverseLerp(0.0f, m_MaxDistanceY, l_DistanceY); 
                     if(l_RandomRangeXPct<=0.0f)
                         l_RandomRangeXPct=0.1f;
                     l_RandomPosX=Random.Range(l_RandomPosX-m_MaxRandomRangeX*l_RandomRangeXPct, l_RandomPosX+m_MaxRandomRangeX*l_RandomRangeXPct);
                     if(l_RandomPosX<=m_PlayerController.GetMinPosX()+m_LimitOffset)
-                        l_RandomPosX=Random.Range(m_PlayerController.GetMinPosX()+m_LimitOffset, m_PlayerController.GetMinPosX()+m_LimitOffset+m_MaxRandomRangeX);
+                        l_RandomPosX=Random.Range(m_PlayerController.GetMinPosX()+m_LimitOffset, m_PlayerController.GetMinPosX()+m_LimitOffset+m_MaxRandomRangeX*l_RandomRangeXPct);
                     else if(l_RandomPosX>=m_PlayerController.GetMaxPosX()-m_LimitOffset)
-                        l_RandomPosX=Random.Range(m_PlayerController.GetMaxPosX()-m_LimitOffset-m_MaxRandomRangeX, m_PlayerController.GetMaxPosX()-m_LimitOffset);
+                        l_RandomPosX=Random.Range(m_PlayerController.GetMaxPosX()-m_LimitOffset-m_MaxRandomRangeX*l_RandomRangeXPct, m_PlayerController.GetMaxPosX()-m_LimitOffset);
                     //Debug.Log("Pct: "+l_RandomRangeXPct+"  CurrentY: "+(Mathf.Sin(l_Time*m_PlayerController.GetMovementSpeedY())*m_PlayerController.GetMovementRange())+
                     //    "  LastY:"+l_LastPosY+"   CurrentX: "+l_RandomPosX+"   LastX: "+l_LastPosX+"   Distance: "+l_DistanceY);
 				    l_RythmPointScript.SetPosition(l_Time, m_PlayerController.GetMovementSpeedY(), m_PlayerController.GetMovementRange(), l_RandomPosX);
                     l_LastPosY=l_RythmPointScript.GetPosition().y;
+
                     //l_LastPosX=l_RythmPointScript.GetPosition().x;
 			        l_RythmPoint.SetActive(false);
 				    m_Points.Add(l_RythmPointScript);
@@ -142,13 +155,13 @@ public class RythmPointController : MonoBehaviour
             }
             if(!l_Point.m_TimingCircle.gameObject.activeSelf)
                 l_Point.m_TimingCircle.gameObject.SetActive(true);
-            if(l_TimeToReachPoint<=-m_PerfectRangeToInteract)
+            if(l_TimeToReachPoint<=-m_MaxRangeToShowCircles)
             {
                 m_PlayerController.ShowPointScoreParticles(m_PlayerController.pointsLevelKey[0], false);
                 l_Point.DisablePoint();
                 IncreaseCurrentRythmPoint();   
             }
-            float l_Pct=Mathf.InverseLerp(m_PerfectRangeToInteract, m_MinRangeToShowCircles, l_TimeToReachPoint);
+            float l_Pct=Mathf.InverseLerp(m_MaxRangeToShowCircles, m_MinRangeToShowCircles, l_TimeToReachPoint);
             l_Point.SetTimingCircleSize(l_Pct);
         }
     }

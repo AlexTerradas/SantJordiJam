@@ -10,6 +10,10 @@ public class RythmPoint : MonoBehaviour
     public TextMeshProUGUI m_KeyText;
     int m_OrderIndex;
 
+    [Header("POINT SPRITE")]
+    public Image m_PointImage;
+    public List<Sprite> m_Sprites;
+
     [Header("TIMING CIRCLE")]
     public RectTransform m_TimingCircle;
     public float m_MaxWidth;
@@ -52,10 +56,6 @@ public class RythmPoint : MonoBehaviour
         l_CircleColor.a=Mathf.Lerp(m_MinCircleOpacity, 1.0f, 1.0f-Pct);
         m_TimingCircleImage.color=l_CircleColor;
     }
-    public Vector2 GetPosition()
-    {
-        return m_RectTransform.localPosition;
-    }
     public void SetPosition(float Time, float MovSpeed, float Range, float PosX)
     {
         Vector3 l_LocalPosition=m_RectTransform.localPosition;
@@ -63,6 +63,15 @@ public class RythmPoint : MonoBehaviour
         l_LocalPosition.x=PosX;
         m_RectTransform.localPosition=l_LocalPosition;
     }
+    public Vector2 GetPosition()
+    {
+        return m_RectTransform.localPosition;
+    }
+    public void SetSprite(int Index)
+    {
+        m_PointImage.sprite=m_Sprites[Index];
+    }
+
     public void DisablePoint()
     {
         gameObject.SetActive(false);

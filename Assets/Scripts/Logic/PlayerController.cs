@@ -76,27 +76,36 @@ public class PlayerController : MonoBehaviour
     public void InteractWithPoint()
     {
         float l_TimeToReachPoint=m_RythmPointController.GetCurrentRythmPoint().GetSongTime()-m_SongTimer;
-        if(l_TimeToReachPoint<=m_RythmPointController.m_PerfectRangeToInteract && l_TimeToReachPoint>=-m_RythmPointController.m_PerfectRangeToInteract)
+		Vector2 l_RythmPointPos=m_RythmPointController.GetCurrentRythmPoint().GetPosition();
+		Vector2 l_PlayerPointPos=m_DancePoint.localPosition;
+        float l_TotalDistanceToPoint=Vector2.Distance(l_RythmPointPos, l_PlayerPointPos);
+		if(l_TotalDistanceToPoint<=m_RythmPointController.m_PerfectPointRange && l_TotalDistanceToPoint>=-m_RythmPointController.m_PerfectPointRange)
         {
             ShowPointScoreParticles(pointsLevelKey[3], true);
             AddScore(m_RythmPointController.m_PerfectPointScore);
+            m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
+            m_RythmPointController.IncreaseCurrentRythmPoint();
         }
-        else if(l_TimeToReachPoint<=m_RythmPointController.m_GoodRangeToInteract)
+        else if(l_TotalDistanceToPoint<=m_RythmPointController.m_GoodPointRange)
         {
             ShowPointScoreParticles(pointsLevelKey[2], false);
             AddScore(m_RythmPointController.m_GoodPointScore);
+            m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
+            m_RythmPointController.IncreaseCurrentRythmPoint();
         }
-        else if(l_TimeToReachPoint<=m_RythmPointController.m_BadRangeToInteract)
+        else if(l_TotalDistanceToPoint<=m_RythmPointController.m_BadPointRange)
         {
             ShowPointScoreParticles(pointsLevelKey[1], false);
             AddScore(m_RythmPointController.m_BadPointScore);
+            m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
+            m_RythmPointController.IncreaseCurrentRythmPoint();
         }
-        else if(l_TimeToReachPoint<=m_RythmPointController.m_MissRangeToInteract)
+        else if(l_TotalDistanceToPoint<=m_RythmPointController.m_MissPointRange)
         {
             ShowPointScoreParticles(pointsLevelKey[0], false);
+            m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
+            m_RythmPointController.IncreaseCurrentRythmPoint();
         }
-        m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
-        m_RythmPointController.IncreaseCurrentRythmPoint();
     }
     public float GetMinPosX()
     {
