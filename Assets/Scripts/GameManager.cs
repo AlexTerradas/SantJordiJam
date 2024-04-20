@@ -1,5 +1,6 @@
 using System.Collections;
 using FMOD.Studio;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -54,6 +55,14 @@ public class GameManager : MonoBehaviour
         
         //EventInstance inGameSong = AudioManager.instance.CreateEventInstance(AudioManager.instance.Music);
         //AudioManager.instance.PlaySong(inGameSong);
+    }
+
+    [SerializeField] EnterExitScene enterExitScene;
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.A))
+            enterExitScene.FadeOutAndChangeScene("EndCinematicScene");
     }
 
     IEnumerator StartPlayingState()
