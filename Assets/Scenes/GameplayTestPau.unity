@@ -394,7 +394,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c1a9f47fc1f3fce499f69918409803b2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7803770b5d889d640874cbb5740acadc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -820,17 +820,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RythmPointController: {fileID: 2009984334}
   m_Panel: {fileID: 965727822}
-  m_PanelLeft: 0
-  m_PanelRight: 0
   m_DancePoint: {fileID: 955307155}
   m_YMovementSpeed: 1
-  m_XMovementSpeed: 300
+  m_XMovementSpeed: 400
   m_TimerText: {fileID: 959342866}
   pointsLevelText:
-  - FAIL
+  - Fail
   - OK
-  - GOOD
-  - PERFECT
+  - Good
+  - Perfect
   puntuationTextPopup: {fileID: -7812609512217437000, guid: cf3410c588cb6e34fabff0f94498b91c, type: 3}
   m_ScoreText: {fileID: 1119892351}
 --- !u!4 &1389335669
@@ -1201,7 +1199,7 @@ MonoBehaviour:
   m_CompassDuration: 1.437126
   m_LimitOffset: 50
   m_MaxRandomRangeX: 150
-  m_NextPointsOnScreen: 3
+  m_NextPointsOnScreen: 2
   m_CompassList:
   - m_CompassAmount: 12
     m_Bpms:

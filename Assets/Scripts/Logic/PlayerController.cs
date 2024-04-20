@@ -57,21 +57,6 @@ public class PlayerController : MonoBehaviour
         
         //float l_DistanceToPointY=Mathf.Abs(l_PlayerPointPos.y-l_RythmPointPos.y);
         //float l_TotalDistanceToPoint=Vector2.Distance(l_RythmPointPos, l_PlayerPointPos);
-        
-        //if(l_DistanceToPointY<=m_RythmPointController.m_MissRangeToInteract)
-        //{
-        //          m_RythmPointController.SetTimingCircleSize(l_DistanceToPointY);
-        //}
-
-        //if(l_TotalDistanceToPoint<=m_RythmPointController.m_PerfectRangeToInteract)
-        //{
-        //}
-        //else if(l_TotalDistanceToPoint<=m_RythmPointController.m_GoodRangeToInteract)
-        //{
-        //}
-        //else if(l_TotalDistanceToPoint<=m_RythmPointController.m_BadRangeToInteract)
-        //{
-        //}
 
         //if(Input.GetKeyDown(KeyCode.Space))
         //{
@@ -82,7 +67,6 @@ public class PlayerController : MonoBehaviour
         //  }
 		//}
         m_RythmPointController.SetTimingCircles(m_SongTimer);
-        
     }
     public void MovePointXAxis(float Direction)
     {
@@ -120,6 +104,14 @@ public class PlayerController : MonoBehaviour
     public float GetMaxPosX()
     { 
         return m_PanelRight;
+    }
+    public float GetMovementSpeedY()
+    {
+        return m_YMovementSpeed;
+    }
+    public float GetMovementRange()
+    {
+        return m_MovementRange;
     }
     public void ShowPointScoreParticles(string Text, bool IsPerfect)
     {
