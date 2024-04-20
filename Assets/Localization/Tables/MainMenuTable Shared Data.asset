@@ -103,6 +103,10 @@ MonoBehaviour:
     m_Key: DisplaySettingFullScreen
     m_Metadata:
       m_Items: []
+  - m_Id: 5085997954166784
+    m_Key: Tutorial
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
