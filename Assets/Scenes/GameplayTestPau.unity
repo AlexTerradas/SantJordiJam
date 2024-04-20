@@ -394,7 +394,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: c1a9f47fc1f3fce499f69918409803b2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1064,14 +1064,47 @@ MonoBehaviour:
   m_LimitOffset: 50
   m_MaxRandomRangeX: 50
   m_CompassList:
+  - m_CompassAmount: 12
+    m_Bpms:
+    - 0
   - m_CompassAmount: 10
+    m_Bpms:
+    - 0.35928145
+    - 0.7185629
+  - m_CompassAmount: 8
+    m_Bpms:
+    - 0.3592815
+    - 0.1796407
+    - 0.5389221
+  - m_CompassAmount: 8
+    m_Bpms:
+    - 0
+    - 0.3592815
+    - 0.3592815
+  - m_CompassAmount: 16
+    m_Bpms:
+    - 0.3592815
+    - 0.1796407
+    - 0.5389221
+  - m_CompassAmount: 16
+    m_Bpms:
+    - 0
+    - 0.3592815
+    - 0.3592815
+  - m_CompassAmount: 8
     m_Bpms:
     - 0
     - 0.7185629
-  - m_CompassAmount: 10
+    - 0.1796407
+  - m_CompassAmount: 16
     m_Bpms:
     - 0
     - 0.7185629
+  - m_CompassAmount: 16
+    m_Bpms:
+    - 0.3592815
+    - 0.1796407
+    - 0.5389221
   m_MissRangeToInteract: 1
   m_BadRangeToInteract: 0.5
   m_GoodRangeToInteract: 0.3
