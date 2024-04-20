@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: PLACEHOLDER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 69d1b6746c1c161408ee3c9d0e39686d, type: 2}
+  m_sharedMaterial: {fileID: 6249998627511113402, guid: 69d1b6746c1c161408ee3c9d0e39686d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -195,11 +195,11 @@ MonoBehaviour:
   prefab: {fileID: 8594749087084886059}
   text: {fileID: 4424566339426612831}
   damagePopupPosition: {fileID: 7101307233325561501}
-  normalColor: {r: 0, g: 0.09069872, b: 1, a: 1}
-  perfectColor: {r: 1, g: 0.027672831, b: 0, a: 1}
+  normalColor: {r: 0.62352943, g: 0.43479532, b: 0.07843135, a: 0.62352943}
+  perfectColor: {r: 0.8666667, g: 0.16862744, b: 0.26578, a: 0.79607844}
   speedX: 20
   speedY: 20
   duration: 2
   disappearSpeed: 3
-  normalFontSize: 14
-  perfectFontSize: 30
+  normalFontSize: 10
+  perfectFontSize: 15
