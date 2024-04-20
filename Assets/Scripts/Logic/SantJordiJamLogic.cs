@@ -57,4 +57,9 @@ public class SantJordiJamLogic : MonoBehaviour
     {
         return bitch;
     }
+
+    public Cinematic GetEndCinematic()
+    {
+        return cinematicEnd;
+    }
 }
