@@ -63,7 +63,7 @@ public class RythmPoint : MonoBehaviour
         l_LocalPosition.x=PosX;
         m_RectTransform.localPosition=l_LocalPosition;
     }
-    public void DisablePoint(bool Missed)
+    public void DisablePoint()
     {
         gameObject.SetActive(false);
     }

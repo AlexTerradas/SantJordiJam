@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("DANCE POINT")]
     public RectTransform m_Panel;
-    public float m_PanelLeft;
-    public float m_PanelRight;
+    float m_PanelLeft;
+    float m_PanelRight;
     public RectTransform m_DancePoint;
     public float m_YMovementSpeed;
     public float m_XMovementSpeed;
@@ -22,9 +22,12 @@ public class PlayerController : MonoBehaviour
     [Header("Timer")]
     public TextMeshProUGUI m_TimerText;
 
-    [Header("Puntuation")]
-    [SerializeField] private string[] pointsLevelText = {"FAIL", "OK", "GOOD", "PERFECT"};
-    [SerializeField] private PuntuationPopup puntuationTextPopup;
+    [Header("Score")]
+    public string[] pointsLevelText = {"FAIL", "OK", "GOOD", "PERFECT"};
+    [SerializeField] 
+    private PuntuationPopup puntuationTextPopup;
+    public TextMeshProUGUI m_ScoreText;
+    float m_CurrentScore;
 
 	private void Awake()
 	{
@@ -90,21 +93,24 @@ public class PlayerController : MonoBehaviour
         float l_TimeToReachPoint=m_RythmPointController.GetCurrentRythmPoint().GetSongTime()-m_SongTimer;
         if(l_TimeToReachPoint<=m_RythmPointController.m_PerfectRangeToInteract && l_TimeToReachPoint>=-m_RythmPointController.m_PerfectRangeToInteract)
         {
-            puntuationTextPopup.Constructor(m_RythmPointController.GetCurrentRythmPoint().transform, m_Panel, pointsLevelText[3], true);
+            ShowPointScoreParticles(pointsLevelText[3], true);
+            AddScore(m_RythmPointController.m_PerfectPointScore);
         }
         else if(l_TimeToReachPoint<=m_RythmPointController.m_GoodRangeToInteract)
         {
-            puntuationTextPopup.Constructor(m_RythmPointController.GetCurrentRythmPoint().transform, m_Panel, pointsLevelText[2], false);
+            ShowPointScoreParticles(pointsLevelText[2], false);
+            AddScore(m_RythmPointController.m_GoodPointScore);
         }
         else if(l_TimeToReachPoint<=m_RythmPointController.m_BadRangeToInteract)
         {
-            puntuationTextPopup.Constructor(m_RythmPointController.GetCurrentRythmPoint().transform, m_Panel, pointsLevelText[1], false);
+            ShowPointScoreParticles(pointsLevelText[1], false);
+            AddScore(m_RythmPointController.m_BadPointScore);
         }
         else if(l_TimeToReachPoint<=m_RythmPointController.m_MissRangeToInteract)
         {
-            puntuationTextPopup.Constructor(m_RythmPointController.GetCurrentRythmPoint().transform, m_Panel, pointsLevelText[0], false);
+            ShowPointScoreParticles(pointsLevelText[0], false);
         }
-        m_RythmPointController.GetCurrentRythmPoint().DisablePoint(true);
+        m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
         m_RythmPointController.IncreaseCurrentRythmPoint();
     }
     public float GetMinPosX()
@@ -114,5 +120,14 @@ public class PlayerController : MonoBehaviour
     public float GetMaxPosX()
     { 
         return m_PanelRight;
+    }
+    public void ShowPointScoreParticles(string Text, bool IsPerfect)
+    {
+        puntuationTextPopup.Constructor(m_RythmPointController.GetCurrentRythmPoint().transform, m_Panel, Text, IsPerfect);
+    }
+    void AddScore(int Score)
+    {
+        m_CurrentScore+=Score;
+        m_ScoreText.SetText(m_CurrentScore.ToString()+" - "+(m_CurrentScore/m_RythmPointController.GetMaxScore()*100.0f).ToString("#.00")+"%");
     }
 }
