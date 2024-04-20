@@ -78,10 +78,8 @@ public class PlayerController : MonoBehaviour
         //    m_RythmPointController.IncreaseCurrentRythmPoint();
         //  }
 		//}
-
-        float l_TimeToReachPoint=m_RythmPointController.GetCurrentRythmPoint().GetSongTime()-m_SongTimer;
-        if(l_TimeToReachPoint<=m_RythmPointController.m_MissRangeToInteract)
-            m_RythmPointController.SetTimingCircleSize(l_TimeToReachPoint);
+        m_RythmPointController.SetTimingCircles(m_SongTimer);
+        
     }
     public void MovePointXAxis(float Direction)
     {

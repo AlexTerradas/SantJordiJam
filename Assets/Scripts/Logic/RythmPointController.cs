@@ -7,11 +7,6 @@ public class CCompassList
 {
     public int m_CompassAmount;
     public List<float> m_Bpms;
-    List<RythmPoint> m_Points=new List<RythmPoint>();
-
-    public RythmPoint GetPoint(int Index) {return m_Points[Index];}
-    public void SetPoint(RythmPoint Point) {m_Points.Add(Point);}
-    public int GetTotalPoints() {return m_Points.Count;}
 }
 
 public class RythmPointController : MonoBehaviour
@@ -20,20 +15,21 @@ public class RythmPointController : MonoBehaviour
     public float m_CompassDuration;
     public float m_LimitOffset;
     public int m_MaxRandomRangeX;
+    public int m_NextPointsOnScreen;
     public List<CCompassList> m_CompassList;
+    List<RythmPoint> m_Points=new List<RythmPoint>();
 
     [Header("Game Parameters")]
+    public float m_MinRangeToShowCircles;
     public float m_MissRangeToInteract; 
     public float m_BadRangeToInteract; 
     public float m_GoodRangeToInteract; 
     public float m_PerfectRangeToInteract; 
-    int m_CurrentSongPart;
-    int m_CurrentRythmPoint;
+    int m_CurrentRythmPointIndex;
 
     [Header("References")]
     public GameObject m_RythmPointPrefab;
     public PlayerController m_PlayerController;
-    //public List<GameObject> m_RythmPointsPool;
 
 	private void Start()
 	{
@@ -61,36 +57,38 @@ public class RythmPointController : MonoBehaviour
                     else if(l_RandomPosX>=m_PlayerController.m_PanelRight-m_LimitOffset)
                         l_RandomPosX=Random.Range(m_PlayerController.m_PanelRight-m_LimitOffset-m_MaxRandomRangeX, m_PlayerController.m_PanelRight-m_LimitOffset);
 			        l_RythmPoint.SetActive(false);
-				    m_CompassList[i].SetPoint(l_RythmPointScript);
+				    m_Points.Add(l_RythmPointScript);
 			    }
                 l_Time+=l_RemainingTime;
             }
-			//l_RythmPointScript.SetIndex(i);
 		}
-        m_CurrentSongPart=0;
-        m_CurrentRythmPoint=0;
-		m_CompassList[m_CurrentSongPart].GetPoint(0).gameObject.SetActive(true);
-		m_CompassList[m_CurrentSongPart].GetPoint(1).gameObject.SetActive(true);
+        m_CurrentRythmPointIndex=0;
+		m_Points[0].gameObject.SetActive(true);
+		for(int i=0; i<m_NextPointsOnScreen; ++i)
+        {
+		    m_Points[1+i].gameObject.SetActive(true);
+            m_Points[1+i].ShowTimingCircle();
+        }
 	}
+    public RythmPoint GetPointByIndex(int Index)
+    {
+        return m_Points[Index];
+    }
 	public RythmPoint GetCurrentRythmPoint()
     {
-        return m_CompassList[m_CurrentSongPart].GetPoint(m_CurrentRythmPoint);
+        return m_Points[m_CurrentRythmPointIndex];
+    }
+    public int GetCurrentRythmPointIndex()
+    {
+        return m_CurrentRythmPointIndex;
     }
     public void IncreaseCurrentRythmPoint()
     {
-        if(m_CurrentRythmPoint+1<m_CompassList[m_CurrentSongPart].GetTotalPoints())
+        if(m_CurrentRythmPointIndex+1<m_Points.Count)
         {
-            m_CurrentRythmPoint++;
-            if(m_CurrentRythmPoint+1<m_CompassList[m_CurrentSongPart].GetTotalPoints())
-                ShowPoint(m_CurrentSongPart, m_CurrentRythmPoint+1);
-            else if(m_CurrentSongPart+1<m_CompassList.Count)
-                ShowPoint(m_CurrentSongPart+1, 0);
-        }
-        else if(m_CurrentSongPart+1<m_CompassList.Count)
-        {
-            m_CurrentRythmPoint=0;
-            m_CurrentSongPart++;
-            ShowPoint(m_CurrentSongPart, m_CurrentRythmPoint+1);
+            m_CurrentRythmPointIndex++;
+            if(m_CurrentRythmPointIndex+m_NextPointsOnScreen<m_Points.Count)
+                ShowPoint(m_CurrentRythmPointIndex+m_NextPointsOnScreen);
         }
         else
         {
@@ -98,20 +96,34 @@ public class RythmPointController : MonoBehaviour
             Debug.Break();
         }
     }
-    void ShowPoint(int SongPart, int Point)
+    void ShowPoint(int Point)
     {
-        m_CompassList[SongPart].GetPoint(Point).gameObject.SetActive(true);
-        m_CompassList[SongPart].GetPoint(Point).ShowTimingCircle();
+        m_Points[Point].gameObject.SetActive(true);
+        m_Points[Point].ShowTimingCircle();
     }
-    public void SetTimingCircleSize(float Distance)
+    public void SetTimingCircles(float SongTime)
     {
-        RythmPoint l_Point=m_CompassList[m_CurrentSongPart].GetPoint(m_CurrentRythmPoint);
-        if(Distance<=-m_PerfectRangeToInteract)
+        for(int i=m_CurrentRythmPointIndex; i<=m_CurrentRythmPointIndex+m_NextPointsOnScreen; ++i)
         {
-            l_Point.DisablePoint(true);
-            IncreaseCurrentRythmPoint();   
+            if(i>=m_Points.Count)
+                break;
+            RythmPoint l_Point=m_Points[i];
+            float l_TimeToReachPoint=GetPointByIndex(i).GetSongTime()-SongTime;
+            if(l_TimeToReachPoint>m_MinRangeToShowCircles)
+            {
+                if(l_Point.m_TimingCircle.gameObject.activeSelf)
+                    l_Point.m_TimingCircle.gameObject.SetActive(false);
+                continue;
+            }
+            if(!l_Point.m_TimingCircle.gameObject.activeSelf)
+                l_Point.m_TimingCircle.gameObject.SetActive(true);
+            if(l_TimeToReachPoint<=-m_PerfectRangeToInteract)
+            {
+                l_Point.DisablePoint(true);
+                IncreaseCurrentRythmPoint();   
+            }
+            float l_Pct=Mathf.InverseLerp(m_PerfectRangeToInteract, m_MinRangeToShowCircles, l_TimeToReachPoint);
+            l_Point.SetTimingCircleSize(l_Pct);
         }
-        float l_Pct=Mathf.InverseLerp(m_PerfectRangeToInteract, m_MissRangeToInteract, Distance);
-        l_Point.SetTimingCircleSize(l_Pct);
     }
 }
