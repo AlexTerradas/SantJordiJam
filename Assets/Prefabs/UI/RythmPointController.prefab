@@ -99,7 +99,7 @@ MonoBehaviour:
   m_BadPointRange: 60
   m_GoodPointRange: 40
   m_PerfectPointRange: 30
-  m_ScoreNeededPct: 0.65
+  m_ScoreNeededPct: 0.5
   m_BadPointScore: 25
   m_GoodPointScore: 50
   m_PerfectPointScore: 100
