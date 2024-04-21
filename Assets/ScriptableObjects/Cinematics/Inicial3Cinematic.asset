@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9d254413fbacd4d88845b0d1bc88d7, type: 3}
   m_Name: Inicial3Cinematic
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 19dc21134d5901840870f9157ce01820, type: 3}
+  sprite: {fileID: 21300000, guid: 3b0e6ce9766bb0540826fe03efd3e480, type: 3}
   time: 2
   localizeStringEvent: CinematicaInicial1
   hasInteraction: 0
   hasStringEvent: 1
+  hasDoorSlam: 0

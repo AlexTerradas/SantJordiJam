@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9d254413fbacd4d88845b0d1bc88d7, type: 3}
   m_Name: Inicial4Cinematic
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: b82b0c081596be640b7c0412949a6d66, type: 3}
+  sprite: {fileID: 0}
   time: 3
+  localizeStringEvent: 
   hasInteraction: 1
-  unityEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  eventFired: 1
+  hasStringEvent: 0
+  hasDoorSlam: 0

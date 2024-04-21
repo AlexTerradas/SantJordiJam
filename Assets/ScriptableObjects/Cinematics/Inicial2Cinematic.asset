@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9d254413fbacd4d88845b0d1bc88d7, type: 3}
   m_Name: Inicial2Cinematic
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 9c086e116817c134ab1cd172bc0d3394, type: 3}
+  sprite: {fileID: 21300000, guid: b7f12c9c18b141c4594dc7f09d06f89a, type: 3}
   time: 2
   localizeStringEvent: 
   hasInteraction: 0
