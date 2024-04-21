@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _princess;
     [SerializeField] private GameObject _santJordi;
     [SerializeField] private Transform enemyPoint;
-    
+    [SerializeField] private EnterExitScene enterExitScene;
     public delegate void PlayingState();
     public static event PlayingState onPlayingState;
     
@@ -57,9 +57,7 @@ public class GameManager : MonoBehaviour
         else 
             Instantiate(_princess, enemyPoint.position, enemyPoint.rotation);
     }
-
-    [SerializeField] EnterExitScene enterExitScene;
-
+    
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.A))
@@ -75,16 +73,14 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartEndingState()
     {
-        //yield return new WaitForSeconds(30);
-        yield return new WaitForSeconds(180);
+        yield return new WaitForSeconds(182.5f);
         gameState = GameState.Ending;
         onEndingState();
     }
 
     IEnumerator StartResultsState()
     {
-        //yield return new WaitForSeconds(35);
-        yield return new WaitForSeconds(183f);
+        yield return new WaitForSeconds(186f);
         gameState = GameState.Results;
         if (playerScore >= scoreNeededToWin)
         {

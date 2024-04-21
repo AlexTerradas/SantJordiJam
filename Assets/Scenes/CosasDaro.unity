@@ -310,9 +310,9 @@ MonoBehaviour:
   _princess: {fileID: 7439984317878121384, guid: 2c09e31dd0acfde49b227d9423a6b483, type: 3}
   _santJordi: {fileID: 2963390088254087099, guid: 9988aae587535f145bef48c4426c263d, type: 3}
   enemyPoint: {fileID: 1698795179}
+  enterExitScene: {fileID: 1099179793}
   gameState: 0
   bitch: 0
-  enterExitScene: {fileID: 0}
 --- !u!4 &123633751
 Transform:
   m_ObjectHideFlags: 0
@@ -827,7 +827,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831377847}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14517866, y: -0.00989256, z: 0.0014516412, w: 0.98935497}
+  m_LocalRotation: {x: 0.14517865, y: -0.009892593, z: 0.0014516461, w: 0.98935497}
   m_LocalPosition: {x: 1.9, y: 3.5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1962,7 +1962,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563904971}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14517866, y: -0.00989256, z: 0.0014516412, w: 0.98935497}
+  m_LocalRotation: {x: 0.14517865, y: -0.009892593, z: 0.0014516461, w: 0.98935497}
   m_LocalPosition: {x: 1.9, y: 3.5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

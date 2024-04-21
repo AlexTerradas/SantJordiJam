@@ -31,7 +31,7 @@ public class FinalPopup : MonoBehaviour
     public void Restart()
     {
         AudioManager.instance.StopSong(AudioManager.instance.inGameSong);
-        enterExitScene.FadeOutAndChangeScene("CosesDaro");
+        enterExitScene.FadeOutAndChangeScene("CosasDaro");
     }
     
     public void ButtonClick()
