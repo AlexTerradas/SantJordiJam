@@ -131,7 +131,6 @@ public class RythmPointController : MonoBehaviour
         else
         {
             Debug.Log("YIPPEEE FINISHED");
-            Debug.Break();
         }
     }
     void ShowPoint(int Point)
