@@ -7049,9 +7049,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Eric Fulla
-
-    Alex Pascua'
+  m_text: "Eric Full\xE0\nAlex Pascua"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e75f74ebae5a9bc47baa66946918c31a, type: 2}
   m_sharedMaterial: {fileID: 6484349126485830458, guid: e75f74ebae5a9bc47baa66946918c31a, type: 2}
@@ -8906,13 +8904,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Darian Badia
-
-    Josep Franqueza
-
-    Pau Sanchez
-
-    Alex Terrades'
+  m_text: "Darian Badia\nJosep Franqueza\nPau S\xE1nchez\nAlex Terradas"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e75f74ebae5a9bc47baa66946918c31a, type: 2}
   m_sharedMaterial: {fileID: 6484349126485830458, guid: e75f74ebae5a9bc47baa66946918c31a, type: 2}
