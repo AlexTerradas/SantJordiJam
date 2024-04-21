@@ -43,11 +43,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1036008789569536
-    m_Localized: YOU WON
+    m_Localized: SUCCESS
     m_Metadata:
       m_Items: []
   - m_Id: 1036707636113408
-    m_Localized: YOU LOST
+    m_Localized: FAILED
     m_Metadata:
       m_Items: []
   - m_Id: 1036972263141376
