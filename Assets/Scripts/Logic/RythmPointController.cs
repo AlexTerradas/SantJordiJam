@@ -132,6 +132,7 @@ public class RythmPointController : MonoBehaviour
         }
         else
         {
+            m_PlayerController.SetFinished();
             Debug.Log("YIPPEEE FINISHED");
         }
     }
