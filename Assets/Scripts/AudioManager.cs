@@ -26,6 +26,9 @@ public class AudioManager : MonoBehaviour
     public EventInstance mainMenuSong;
     public EventInstance cinematicSong;
     public EventInstance inGameSong;
+
+    public float musicVolume = 10f;
+    public float sfxVolume = 10f;
     
     public static AudioManager instance { get; private set; }
 

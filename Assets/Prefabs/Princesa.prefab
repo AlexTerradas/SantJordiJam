@@ -173,5 +173,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9665a6eb25d017b40805ad699bc0498a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mistakeTimerMin: 50
-  _mistakeTimerMax: 60
+  _mistakeTimerMin: 30
+  _mistakeTimerMax: 45

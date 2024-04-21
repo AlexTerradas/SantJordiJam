@@ -31,6 +31,8 @@ public class FadePanel : MonoBehaviour
             yield return null;
         }
 
+        canvas.alpha = end;
+
         changeScene();
     }
 }

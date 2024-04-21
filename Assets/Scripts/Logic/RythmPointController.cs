@@ -45,6 +45,8 @@ public class RythmPointController : MonoBehaviour
 
 	private void Start()
 	{
+        m_PlayerController.SetStartSong();
+        AudioManager.instance.PlaySong(AudioManager.instance.inGameSong);
         float l_Time=m_StartDelay;
         float l_RandomPosX=m_PlayerController.GetMaxPosX()/2;
         float l_LastPosY=0.0f;
@@ -130,6 +132,7 @@ public class RythmPointController : MonoBehaviour
         }
         else
         {
+            m_PlayerController.SetFinished();
             Debug.Log("YIPPEEE FINISHED");
         }
     }

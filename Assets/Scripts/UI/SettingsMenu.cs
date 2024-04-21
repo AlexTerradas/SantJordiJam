@@ -45,14 +45,23 @@ public class SettingsMenu : MonoBehaviour
 
         _sfxBus = RuntimeManager.GetBus("bus:/SFX");
         _musicBus = RuntimeManager.GetBus("bus:/Music");
-        
+
+        // Set sliders volume start
+        _sfxBus.getVolume(out _sfxVolume);
+        _musicBus.getVolume(out _musicVolume);
+
+        _sfxSlider.value = _sfxVolume;
+        _musicSlider.value = _musicVolume;
+
         _resolutionText.text = Screen.currentResolution.width + "x" + Screen.currentResolution.height;
     }
 
     private void Update()
     {
-        _sfxBus.setVolume(_sfxVolume/10);
-        _musicBus.setVolume(_musicVolume/10);
+        AudioManager.instance.sfxVolume = _sfxVolume;
+        AudioManager.instance.musicVolume = _musicVolume;
+        _sfxBus.setVolume(AudioManager.instance.sfxVolume/10);
+        _musicBus.setVolume(AudioManager.instance.musicVolume/10);
     }
 
     public void IncreaseSFXVolume()
