@@ -61,12 +61,12 @@ public class PauseMenu : MonoBehaviour
     
     public void Resume()
     {
-        Time.timeScale = 1.0f;
         _fade.StartCoroutine(_fade.Fade(backgroundCanvas, 1, 0, 0, 0.01f));
         _fade.StartCoroutine(_fade.Fade(currentCanvas, 1, 0, 0, 0.01f));
         AudioManager.instance.PlayOneShot(AudioManager.instance.PauseOff);
         AudioManager.instance.ResumeSong(AudioManager.instance.inGameSong);
         _paused = false;
+        Time.timeScale = 1.0f;
     }
     
     public void ButtonClick()
