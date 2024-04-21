@@ -99,9 +99,10 @@ MonoBehaviour:
   m_BadPointRange: 60
   m_GoodPointRange: 40
   m_PerfectPointRange: 30
-  m_ScoreNeededPct: 0.65
+  m_ScoreNeededPct: 0.5
   m_BadPointScore: 25
   m_GoodPointScore: 50
   m_PerfectPointScore: 100
   m_RythmPointPrefab: {fileID: 5346850690128002986, guid: 242a0a0de9243e64dbd90cc66df0c893, type: 3}
   m_PlayerController: {fileID: 0}
+  m_Drac: {fileID: 0}
