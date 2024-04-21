@@ -45,20 +45,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CompassDuration: 1.437126
-  m_StartDelay: 1
+  m_StartDelay: 2.35
   m_LimitOffset: 50
   m_MaxRandomRangeX: 150
   m_MaxDistanceY: 100
   m_NextPointsOnScreen: 2
   m_CompassList:
-  - m_CompassAmount: 12
+  - m_CompassAmount: 8
     m_Bpms:
     - 0
-  - m_CompassAmount: 10
+  - m_CompassAmount: 16
     m_Bpms:
-    - 0.35928145
+    - 0.3592815
     - 0.7185629
-  - m_CompassAmount: 8
+  - m_CompassAmount: 16
     m_Bpms:
     - 0.3592815
     - 0.1796407
@@ -81,11 +81,12 @@ MonoBehaviour:
   - m_CompassAmount: 8
     m_Bpms:
     - 0
-    - 0.7185629
-    - 0.1796407
+    - 0.3592815
+    - 0.3592815
+    - 0.3592815
   - m_CompassAmount: 16
     m_Bpms:
-    - 0
+    - 0.3592815
     - 0.7185629
   - m_CompassAmount: 16
     m_Bpms:
@@ -95,10 +96,10 @@ MonoBehaviour:
   m_MinRangeToShowCircles: 2
   m_MaxRangeToShowCircles: 0.1
   m_MissPointRange: 100
-  m_BadPointRange: 50
-  m_GoodPointRange: 25
-  m_PerfectPointRange: 10
-  m_ScoreNeededPct: 0.85
+  m_BadPointRange: 60
+  m_GoodPointRange: 40
+  m_PerfectPointRange: 30
+  m_ScoreNeededPct: 0.65
   m_BadPointScore: 25
   m_GoodPointScore: 50
   m_PerfectPointScore: 100
