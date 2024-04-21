@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     float m_MovementRange;
     float m_SongTimer;
     bool m_StartSongTimer;
+    bool m_Finished;
 
     [Header("Timer")]
     public TextMeshProUGUI m_TimerText;
@@ -37,10 +38,11 @@ public class PlayerController : MonoBehaviour
         m_PanelLeft=0.0f;
         m_PanelRight=m_Panel.offsetMax.x-m_Panel.offsetMin.x;
         m_SongTimer=0.0f;
+        m_Finished=false;
 	}
 	void Update()
     {
-        if(m_StartSongTimer)
+        if(m_StartSongTimer && !m_Finished)
         {
             m_SongTimer+=Time.deltaTime;
 
@@ -59,40 +61,44 @@ public class PlayerController : MonoBehaviour
     }
     public void MovePointXAxis(float Direction)
     {
-        m_DirectionX=Direction;
+        if(!m_Finished)
+            m_DirectionX=Direction;
     }
     public void InteractWithPoint()
     {
-        float l_TimeToReachPoint=m_RythmPointController.GetCurrentRythmPoint().GetSongTime()-m_SongTimer;
-		Vector2 l_RythmPointPos=m_RythmPointController.GetCurrentRythmPoint().GetPosition();
-		Vector2 l_PlayerPointPos=m_DancePoint.localPosition;
-        float l_TotalDistanceToPoint=Vector2.Distance(l_RythmPointPos, l_PlayerPointPos);
-		if(l_TotalDistanceToPoint<=m_RythmPointController.m_PerfectPointRange && l_TotalDistanceToPoint>=-m_RythmPointController.m_PerfectPointRange)
+        if(m_StartSongTimer && !m_Finished)
         {
-            ShowPointScoreParticles(pointsLevelKey[3], true);
-            AddScore(m_RythmPointController.m_PerfectPointScore);
-            m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
-            m_RythmPointController.IncreaseCurrentRythmPoint();
-        }
-        else if(l_TotalDistanceToPoint<=m_RythmPointController.m_GoodPointRange)
-        {
-            ShowPointScoreParticles(pointsLevelKey[2], false);
-            AddScore(m_RythmPointController.m_GoodPointScore);
-            m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
-            m_RythmPointController.IncreaseCurrentRythmPoint();
-        }
-        else if(l_TotalDistanceToPoint<=m_RythmPointController.m_BadPointRange)
-        {
-            ShowPointScoreParticles(pointsLevelKey[1], false);
-            AddScore(m_RythmPointController.m_BadPointScore);
-            m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
-            m_RythmPointController.IncreaseCurrentRythmPoint();
-        }
-        else if(l_TotalDistanceToPoint<=m_RythmPointController.m_MissPointRange)
-        {
-            ShowPointScoreParticles(pointsLevelKey[0], false);
-            m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
-            m_RythmPointController.IncreaseCurrentRythmPoint();
+            //float l_TimeToReachPoint=m_RythmPointController.GetCurrentRythmPoint().GetSongTime()-m_SongTimer;
+		    Vector2 l_RythmPointPos=m_RythmPointController.GetCurrentRythmPoint().GetPosition();
+		    Vector2 l_PlayerPointPos=m_DancePoint.localPosition;
+            float l_TotalDistanceToPoint=Vector2.Distance(l_RythmPointPos, l_PlayerPointPos);
+		    if(l_TotalDistanceToPoint<=m_RythmPointController.m_PerfectPointRange && l_TotalDistanceToPoint>=-m_RythmPointController.m_PerfectPointRange)
+            {
+                ShowPointScoreParticles(pointsLevelKey[3], true);
+                AddScore(m_RythmPointController.m_PerfectPointScore);
+                m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
+                m_RythmPointController.IncreaseCurrentRythmPoint();
+            }
+            else if(l_TotalDistanceToPoint<=m_RythmPointController.m_GoodPointRange)
+            {
+                ShowPointScoreParticles(pointsLevelKey[2], false);
+                AddScore(m_RythmPointController.m_GoodPointScore);
+                m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
+                m_RythmPointController.IncreaseCurrentRythmPoint();
+            }
+            else if(l_TotalDistanceToPoint<=m_RythmPointController.m_BadPointRange)
+            {
+                ShowPointScoreParticles(pointsLevelKey[1], false);
+                AddScore(m_RythmPointController.m_BadPointScore);
+                m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
+                m_RythmPointController.IncreaseCurrentRythmPoint();
+            }
+            else if(l_TotalDistanceToPoint<=m_RythmPointController.m_MissPointRange)
+            {
+                ShowPointScoreParticles(pointsLevelKey[0], false);
+                m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
+                m_RythmPointController.IncreaseCurrentRythmPoint();
+            }
         }
     }
     public float GetMinPosX()
@@ -124,5 +130,9 @@ public class PlayerController : MonoBehaviour
     public void SetStartSong()
     {
         m_StartSongTimer=true;
+    }
+    public void SetFinished()
+    {
+        m_Finished=true;
     }
 }
