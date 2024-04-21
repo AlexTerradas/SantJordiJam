@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
                 AddScore(m_RythmPointController.m_PerfectPointScore);
                 m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
                 m_RythmPointController.IncreaseCurrentRythmPoint();
+                AudioManager.instance.PlayOneShot(AudioManager.instance.Success);
             }
             else if(l_TotalDistanceToPoint<=m_RythmPointController.m_GoodPointRange)
             {
@@ -85,6 +86,7 @@ public class PlayerController : MonoBehaviour
                 AddScore(m_RythmPointController.m_GoodPointScore);
                 m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
                 m_RythmPointController.IncreaseCurrentRythmPoint();
+                AudioManager.instance.PlayOneShot(AudioManager.instance.Success);
             }
             else if(l_TotalDistanceToPoint<=m_RythmPointController.m_BadPointRange)
             {
@@ -92,12 +94,14 @@ public class PlayerController : MonoBehaviour
                 AddScore(m_RythmPointController.m_BadPointScore);
                 m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
                 m_RythmPointController.IncreaseCurrentRythmPoint();
+                AudioManager.instance.PlayOneShot(AudioManager.instance.Success);
             }
             else if(l_TotalDistanceToPoint<=m_RythmPointController.m_MissPointRange)
             {
                 ShowPointScoreParticles(pointsLevelKey[0], false);
                 m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
                 m_RythmPointController.IncreaseCurrentRythmPoint();
+                AudioManager.instance.PlayOneShot(AudioManager.instance.Mistake);
             }
         }
     }
