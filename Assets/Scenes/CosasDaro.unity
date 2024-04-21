@@ -664,6 +664,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &312153709 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7765547185983108950, guid: 8814221796baea142b85e911ef966f4e, type: 3}
+  m_PrefabInstance: {fileID: 8338147484911279202}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &368841022 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1391647046462921116, guid: 338c4e4b256af6a4387b600d53564259, type: 3}
@@ -856,11 +861,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+  near clip plane: 0.1
+  far clip plane: 5000
   field of view: 60.000004
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -884,8 +889,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831377847}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14517865, y: -0.009892593, z: 0.0014516461, w: 0.98935497}
-  m_LocalPosition: {x: 1.9, y: 3.5, z: -5}
+  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
+  m_LocalPosition: {x: -1, y: 3, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3321,9 +3326,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3002773183516507707, guid: 8814221796baea142b85e911ef966f4e, type: 3}
+      propertyPath: fadeDelay
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002773183516507707, guid: 8814221796baea142b85e911ef966f4e, type: 3}
       propertyPath: playerInput
       value: 
       objectReference: {fileID: 1929752032}
+    - target: {fileID: 3002773183516507707, guid: 8814221796baea142b85e911ef966f4e, type: 3}
+      propertyPath: fadeDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002773183516507707, guid: 8814221796baea142b85e911ef966f4e, type: 3}
+      propertyPath: pauseMenuCanvas
+      value: 
+      objectReference: {fileID: 312153709}
+    - target: {fileID: 3002773183516507707, guid: 8814221796baea142b85e911ef966f4e, type: 3}
+      propertyPath: optionsMenuCanvas
+      value: 
+      objectReference: {fileID: 8338147484911279203}
     - target: {fileID: 3080142833705312137, guid: 8814221796baea142b85e911ef966f4e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3689,6 +3710,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8814221796baea142b85e911ef966f4e, type: 3}
+--- !u!225 &8338147484911279203 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 925148852062984962, guid: 8814221796baea142b85e911ef966f4e, type: 3}
+  m_PrefabInstance: {fileID: 8338147484911279202}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

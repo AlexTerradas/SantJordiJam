@@ -1,14 +1,23 @@
-﻿using UnityEngine;
+﻿using FMODUnity;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
+    [Header("Inputs")]
     [SerializeField]
     private PlayerInput playerInput;
     [SerializeField]
     private InputAction pauseAction;
+
+    [Header("Canvas Groups")]
+    [SerializeField] private CanvasGroup pauseMenuCanvas;
+    [SerializeField] private CanvasGroup optionsMenuCanvas;
     [SerializeField] private CanvasGroup currentCanvas;
     [SerializeField] private CanvasGroup backgroundCanvas;
+
+    [Header("Properties")]
     [SerializeField] private float fadeDuration;
     [SerializeField] private float fadeDelay;
     private FadePanel _fade;
@@ -50,20 +59,33 @@ public class PauseMenu : MonoBehaviour
 
     void Pause()
     {
-        Time.timeScale = 0.0f;
         _fade.StartCoroutine(_fade.Fade(backgroundCanvas, 0, 1, 0, 0.01f));
         _fade.StartCoroutine(_fade.Fade(currentCanvas, 0, 1, 0, 0.01f));
+
         AudioManager.instance.PlayOneShot(AudioManager.instance.PauseOn);
         AudioManager.instance.PauseSong(AudioManager.instance.inGameSong);
+
+        currentCanvas.interactable = true;
+        currentCanvas.blocksRaycasts = true;
+
         _paused = true;
+        Time.timeScale = 0.0f;
     }
     
     public void Resume()
     {
         _fade.StartCoroutine(_fade.Fade(backgroundCanvas, 1, 0, 0, 0.01f));
         _fade.StartCoroutine(_fade.Fade(currentCanvas, 1, 0, 0, 0.01f));
+
+        currentCanvas.interactable = false;
+        currentCanvas.blocksRaycasts = false;
+
         AudioManager.instance.PlayOneShot(AudioManager.instance.PauseOff);
         AudioManager.instance.ResumeSong(AudioManager.instance.inGameSong);
+
+        currentCanvas = pauseMenuCanvas;
+        StartCoroutine(ResumeCheck());
+
         _paused = false;
         Time.timeScale = 1.0f;
     }
@@ -76,6 +98,17 @@ public class PauseMenu : MonoBehaviour
     public void StopInGameSong()
     {
         AudioManager.instance.StopSong(AudioManager.instance.inGameSong);
+    }
+
+    IEnumerator ResumeCheck()
+    {
+        yield return new WaitForSeconds(0.05f);
+        
+        if(pauseMenuCanvas.alpha > 0)
+            pauseMenuCanvas.alpha = 0;
+
+        if(optionsMenuCanvas.alpha > 0)
+            optionsMenuCanvas.alpha = 0;
     }
     
     //public void QuitGame()
