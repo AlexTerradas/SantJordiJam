@@ -28,12 +28,10 @@ public class InputControls : MonoBehaviour
     private void OnMovement(InputValue input)
     {
         Vector2 movementInput = input.Get<Vector2>();
-        print("X: " + movementInput.x);
         playerController.MovePointXAxis(movementInput.x);
     }
     private void OnSpaceKey()
     {
-        print("Space Key is pressed");
         playerController.InteractWithPoint();
     }
     private void OnPauseKey()

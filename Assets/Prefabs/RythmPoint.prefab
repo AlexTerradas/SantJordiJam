@@ -167,11 +167,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_KeyText: {fileID: 8825917972660027196}
   m_PointImage: {fileID: 6565517430089345082}
-  m_Sprites:
+  m_PointSprites:
   - {fileID: 21300000, guid: 18acef05a404e094f964cebf330b2cf0, type: 3}
   - {fileID: 21300000, guid: a01ab6523d6d6f040b6a26b948cb25a4, type: 3}
   - {fileID: 21300000, guid: 1ae0173e45adabf4da2c985fedcea4d8, type: 3}
   m_TimingCircle: {fileID: 1606110369853923878}
+  m_CircleSprites:
+  - {fileID: 21300000, guid: 77228751f301d324286528b528343040, type: 3}
+  - {fileID: 21300000, guid: 5c4fca989036f7e4b8ec779d972cddc3, type: 3}
+  - {fileID: 21300000, guid: 442e1e386b2773748b23510f13ffe38b, type: 3}
   m_MaxWidth: 300
   m_MinWidth: 45
   m_MinCircleOpacity: 0.3

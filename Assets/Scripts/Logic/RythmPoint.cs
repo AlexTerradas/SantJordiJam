@@ -12,10 +12,11 @@ public class RythmPoint : MonoBehaviour
 
     [Header("POINT SPRITE")]
     public Image m_PointImage;
-    public List<Sprite> m_Sprites;
+    public List<Sprite> m_PointSprites;
 
     [Header("TIMING CIRCLE")]
     public RectTransform m_TimingCircle;
+    public List<Sprite> m_CircleSprites;
     public float m_MaxWidth;
     public float m_MinWidth;
     [Range(0.0f, 1.0f)]
@@ -69,7 +70,8 @@ public class RythmPoint : MonoBehaviour
     }
     public void SetSprite(int Index)
     {
-        m_PointImage.sprite=m_Sprites[Index];
+        m_PointImage.sprite=m_PointSprites[Index];
+        m_TimingCircleImage.sprite=m_CircleSprites[Index];
     }
 
     public void DisablePoint()

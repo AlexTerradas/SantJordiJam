@@ -67,7 +67,7 @@ public class RythmPointController : MonoBehaviour
 				    RythmPoint l_RythmPointScript=l_RythmPoint.GetComponent<RythmPoint>();
 
                     l_RythmPointScript.SetSprite(l_SpriteIndex);
-                    if(l_SpriteIndex+1<l_RythmPointScript.m_Sprites.Count)
+                    if(l_SpriteIndex+1<l_RythmPointScript.m_PointSprites.Count)
                         l_SpriteIndex++;
                     else
                         l_SpriteIndex=0;
@@ -131,7 +131,6 @@ public class RythmPointController : MonoBehaviour
         else
         {
             Debug.Log("YIPPEEE FINISHED");
-            Debug.Break();
         }
     }
     void ShowPoint(int Point)

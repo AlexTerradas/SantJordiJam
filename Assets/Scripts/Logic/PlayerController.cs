@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 	private void Awake()
 	{
         m_MovementRange=m_Panel.offsetMax.y;
-        m_PanelLeft=m_Panel.offsetMin.x;
+        m_PanelLeft=0.0f;
         m_PanelRight=m_Panel.offsetMax.x-m_Panel.offsetMin.x;
         m_SongTimer=0.0f;
 	}
