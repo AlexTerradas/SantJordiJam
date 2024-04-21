@@ -837,6 +837,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenuCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2479027460280497608, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841966508677659743, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321417508586859829, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 4436734898918235620, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -928,6 +940,14 @@ PrefabInstance:
     - target: {fileID: 5087728086255904719, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772563511621562907, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8427813595387059237, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 8950355836786244857, guid: db5d51568f3f2cc46b0f900d04582a3e, type: 3}
       propertyPath: _cameraAnimator
