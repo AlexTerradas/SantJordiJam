@@ -24,15 +24,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "GKey",
-                    "type": "Button",
-                    "id": "f2858dda-1424-47bb-ba3f-d7ef2431189f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "PauseKey",
                     "type": "Button",
                     "id": "967d72a4-7680-4572-9dd3-a77f2bdb1a0b",
@@ -66,9 +57,53 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "left",
+                    "id": "52551bb5-146c-40a1-b45c-ee55f9d7f3ad",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "fac3b57e-2caa-431b-af2d-2ffa251edcfe",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "right",
                     "id": "8f81e56b-533a-4b08-98ea-2197f2dd4e34",
                     "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "1dd1ba47-8ab1-4a07-a3b4-3eeb8f434155",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "f67e420f-d95d-431e-9aec-72752917f43f",
+                    "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -89,12 +124,12 @@
                 },
                 {
                     "name": "",
-                    "id": "2be5c9e8-1c00-41a4-a31b-53aff91c0b43",
-                    "path": "<Keyboard>/g",
+                    "id": "c6aa0f71-4f02-4daf-9632-d77b4dfca4e0",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "GKey",
+                    "action": "SpaceKey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

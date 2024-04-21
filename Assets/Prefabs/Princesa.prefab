@@ -147,14 +147,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7439984317878121384}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef658b4b8369f0a4f85fcc678960099a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _danceParameters: []
+  _danceParameters:
+  - Dance 1
+  - Dance 2
+  - Dance 3
+  - Dance 4
+  - Dance 5
   _danceAnimationDelay: 5
   _mistakeAnimationDelay: 3
+  _isNPC: 1
 --- !u!114 &3492080541493740146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,10 +168,10 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7439984317878121384}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9665a6eb25d017b40805ad699bc0498a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mistakeTimerMin: 50
-  _mistakeTimerMax: 60
+  _mistakeTimerMin: 30
+  _mistakeTimerMax: 45

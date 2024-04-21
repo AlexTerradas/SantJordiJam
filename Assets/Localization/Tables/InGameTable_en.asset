@@ -19,11 +19,11 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 1033822462472192
-    m_Localized: I'VE ALWAYS LOVED YOU...
+    m_Localized: I've always loved you...
     m_Metadata:
       m_Items: []
   - m_Id: 1034020110659584
-    m_Localized: '[Rival] I challenge you to a Dance Battle!'
+    m_Localized: I challenge you to a Dance Battle, Princess!
     m_Metadata:
       m_Items: []
   - m_Id: 1034430217121792
@@ -43,11 +43,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1036008789569536
-    m_Localized: SUCCESS
+    m_Localized: YOU WON
     m_Metadata:
       m_Items: []
   - m_Id: 1036707636113408
-    m_Localized: FAILED
+    m_Localized: YOU LOST
     m_Metadata:
       m_Items: []
   - m_Id: 1036972263141376
@@ -76,6 +76,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1458885305233408
     m_Localized: Failed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4737763148828672
+    m_Localized: I challenge you to a Dance Battle, Saint Jordi!
     m_Metadata:
       m_Items: []
   references:

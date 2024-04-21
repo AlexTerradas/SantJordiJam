@@ -3,11 +3,14 @@ using FMOD.Studio;
 using FMODUnity;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _displayText;
+    [SerializeField] private LocalizeStringEvent displayLocalizationEvent;
+    [SerializeField] private string _windowedKey;
+    [SerializeField] private string _fullscreenKey;
     [SerializeField] private TMP_Text _resolutionText;
     
     private Resolution[] _resolutions;
@@ -42,12 +45,22 @@ public class SettingsMenu : MonoBehaviour
 
         _sfxBus = RuntimeManager.GetBus("bus:/SFX");
         _musicBus = RuntimeManager.GetBus("bus:/Music");
+
+        _resolutionText.text = Screen.currentResolution.width + "x" + Screen.currentResolution.height;
+
+        _sfxSlider.value = AudioManager.instance.sfxVolume;
+        _musicSlider.value = AudioManager.instance.musicVolume;
+        
+        _sfxBus.setVolume(AudioManager.instance.sfxVolume/10);
+        _musicBus.setVolume(AudioManager.instance.musicVolume/10);
     }
 
     private void Update()
     {
-        _sfxBus.setVolume(_sfxVolume/10);
-        _musicBus.setVolume(_musicVolume/10);
+        AudioManager.instance.sfxVolume = _sfxVolume;
+        AudioManager.instance.musicVolume = _musicVolume;
+        _sfxBus.setVolume(AudioManager.instance.sfxVolume/10);
+        _musicBus.setVolume(AudioManager.instance.musicVolume/10);
     }
 
     public void IncreaseSFXVolume()
@@ -79,7 +92,7 @@ public class SettingsMenu : MonoBehaviour
     public void SwapDisplayMode()
     {
         Screen.fullScreen = !Screen.fullScreen;
-        _displayText.text = Screen.fullScreen ? "Windowed" : "Fullscreen";
+        displayLocalizationEvent.SetEntry(Screen.fullScreen ? _windowedKey : _fullscreenKey);
     }
     
     public void IncreaseResolution()

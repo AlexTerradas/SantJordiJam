@@ -8,6 +8,7 @@ public class CharacterAnimations : MonoBehaviour
     [SerializeField] private string[] _danceParameters;
     [SerializeField] private float _danceAnimationDelay;
     [SerializeField] private float _mistakeAnimationDelay;
+    [SerializeField] private bool _isNPC;
     private Animator _animator;
     private bool _mistake;
     private int _value;
@@ -49,6 +50,9 @@ public class CharacterAnimations : MonoBehaviour
 
     public IEnumerator MistakeAnimation()
     {
+        if (_mistake || GameManager.instance.gameState == GameManager.GameState.Starting)
+            yield break;
+        
         _mistake = true;
         _animator.SetTrigger("Dizzy");
         yield return new WaitForSeconds(_mistakeAnimationDelay);
@@ -65,15 +69,18 @@ public class CharacterAnimations : MonoBehaviour
     
     public void WinLoseAnimation(bool win)
     {
+        if (_isNPC)
+            win = !win;
+        
         if (win)
         {
             _animator.SetTrigger("Win");
-            AudioManager.instance.PlayOneShot(AudioManager.instance.WinGame);
+            if (!_isNPC) AudioManager.instance.PlayOneShot(AudioManager.instance.WinGame);
         }
         else
         {
-            _animator.SetTrigger("Lose");
-            AudioManager.instance.PlayOneShot(AudioManager.instance.LoseGame);
+            _animator.SetTrigger("Defeat");
+            if (!_isNPC) AudioManager.instance.PlayOneShot(AudioManager.instance.LoseGame);
         }
     }
 

@@ -16,3 +16,4 @@ MonoBehaviour:
   time: 2
   localizeStringEvent: CinematicaInicial1
   hasInteraction: 0
+  hasStringEvent: 1

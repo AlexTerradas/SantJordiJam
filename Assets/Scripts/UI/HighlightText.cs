@@ -20,4 +20,9 @@ public class HighlightText : MonoBehaviour
     {
         _text.fontStyle = FontStyles.Normal | FontStyles.UpperCase;
     }
+
+    public void ButtonClickAudio()
+    {
+        AudioManager.instance.PlayOneShot(AudioManager.instance.ButtonClick);
+    }
 }

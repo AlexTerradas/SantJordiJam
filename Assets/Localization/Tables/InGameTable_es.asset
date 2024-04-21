@@ -19,11 +19,11 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 1033822462472192
-    m_Localized: "\xA1SIEMPRE TE HE QUERIDO..."
+    m_Localized: "\xA1Siempre te he querido..."
     m_Metadata:
       m_Items: []
   - m_Id: 1034020110659584
-    m_Localized: "\xA1[Rival] te reto a una Batalla de Baile!"
+    m_Localized: "\xA1Te reto a una Batalla de Baile, Princesa!"
     m_Metadata:
       m_Items: []
   - m_Id: 1034430217121792
@@ -43,11 +43,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1036008789569536
-    m_Localized: COMPLETADO
+    m_Localized: HAS GANADO
     m_Metadata:
       m_Items: []
   - m_Id: 1036707636113408
-    m_Localized: FALLIDO
+    m_Localized: HAS PERDIDO
     m_Metadata:
       m_Items: []
   - m_Id: 1036972263141376
@@ -76,6 +76,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1458885305233408
     m_Localized: Fallado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4737763148828672
+    m_Localized: "\xA1Te reto a una Batalla de Baile, Sant Jordi!"
     m_Metadata:
       m_Items: []
   references:

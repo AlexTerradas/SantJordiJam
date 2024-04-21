@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using FMOD.Studio;
 
 public class MainMenu : MonoBehaviour
 {
@@ -9,15 +8,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Animator _cameraAnimator;
     [SerializeField] private float _fadeDuration;
     [SerializeField] private float _fadeDelay;
-    private EventInstance mainMenuSong;
     private FadePanel _fade;
     
     private void Start()
     {
         _fade = GetComponent<FadePanel>();
         _fade.StartCoroutine(_fade.Fade(_blackCanvas, 1, 0, 0, _fadeDuration));
-        mainMenuSong = AudioManager.instance.CreateEventInstance(AudioManager.instance.MainMenu);
-        AudioManager.instance.PlaySong(mainMenuSong);
+        AudioManager.instance.PlaySong(AudioManager.instance.mainMenuSong);
     }
 
     public void StartGame()
@@ -38,8 +35,8 @@ public class MainMenu : MonoBehaviour
 
     public void ChangeScene()
     {
-        AudioManager.instance.StopSong(mainMenuSong);
-        SceneManager.LoadScene("CosasDaro");
+        AudioManager.instance.StopSong(AudioManager.instance.mainMenuSong);
+        SceneManager.LoadScene("CinematicScene");
     }
 
     public void AnimateCamera(string trigger)
