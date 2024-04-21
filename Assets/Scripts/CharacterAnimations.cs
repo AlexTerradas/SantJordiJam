@@ -50,6 +50,9 @@ public class CharacterAnimations : MonoBehaviour
 
     public IEnumerator MistakeAnimation()
     {
+        if (_mistake || GameManager.instance.gameState == GameManager.GameState.Starting)
+            yield break;
+        
         _mistake = true;
         _animator.SetTrigger("Dizzy");
         yield return new WaitForSeconds(_mistakeAnimationDelay);

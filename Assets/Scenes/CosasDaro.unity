@@ -827,7 +827,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831377847}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14517866, y: -0.00989256, z: 0.0014516412, w: 0.98935497}
+  m_LocalRotation: {x: 0.14517865, y: -0.009892593, z: 0.0014516461, w: 0.98935497}
   m_LocalPosition: {x: 1.9, y: 3.5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1800,6 +1800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RythmPointController: {fileID: 2009984334}
+  m_Drac: {fileID: 1575507965}
   m_Panel: {fileID: 965727822}
   m_DancePoint: {fileID: 955307155}
   m_YMovementSpeed: 1
@@ -1892,7 +1893,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563904971}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14517866, y: -0.00989256, z: 0.0014516412, w: 0.98935497}
+  m_LocalRotation: {x: 0.14517865, y: -0.009892593, z: 0.0014516461, w: 0.98935497}
   m_LocalPosition: {x: 1.9, y: 3.5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2538,6 +2539,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26a41a6ca72addd42a0a2971e67eb93b, type: 3}
+--- !u!114 &1575507965 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2632647068997968521, guid: 26a41a6ca72addd42a0a2971e67eb93b, type: 3}
+  m_PrefabInstance: {fileID: 1575507964}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268870453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef658b4b8369f0a4f85fcc678960099a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1609905299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3134,6 +3146,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2282255112784548018, guid: bfc404af0c770a246a426b5f7278b228, type: 3}
+      propertyPath: m_Drac
+      value: 
+      objectReference: {fileID: 1575507965}
     - target: {fileID: 2282255112784548018, guid: bfc404af0c770a246a426b5f7278b228, type: 3}
       propertyPath: m_PlayerController
       value: 

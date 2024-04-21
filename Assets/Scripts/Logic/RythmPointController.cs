@@ -42,7 +42,8 @@ public class RythmPointController : MonoBehaviour
     [Header("References")]
     public GameObject m_RythmPointPrefab;
     public PlayerController m_PlayerController;
-
+    public CharacterAnimations m_Drac;
+    
 	private void Start()
 	{
         m_PlayerController.SetStartSong();
@@ -160,6 +161,8 @@ public class RythmPointController : MonoBehaviour
             if(l_TimeToReachPoint<=-m_MaxRangeToShowCircles)
             {
                 m_PlayerController.ShowPointScoreParticles(m_PlayerController.pointsLevelKey[0], false);
+                AudioManager.instance.PlayOneShot(AudioManager.instance.Mistake);
+                m_Drac.StartCoroutine(m_Drac.MistakeAnimation());
                 l_Point.DisablePoint();
                 IncreaseCurrentRythmPoint();   
             }

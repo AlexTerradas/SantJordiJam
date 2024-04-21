@@ -8,7 +8,8 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public RythmPointController m_RythmPointController;
-
+    public CharacterAnimations m_Drac;
+    
     [Header("DANCE POINT")]
     public RectTransform m_Panel;
     float m_PanelLeft;
@@ -78,7 +79,7 @@ public class PlayerController : MonoBehaviour
                 AddScore(m_RythmPointController.m_PerfectPointScore);
                 m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
                 m_RythmPointController.IncreaseCurrentRythmPoint();
-                AudioManager.instance.PlayOneShot(AudioManager.instance.Success);
+                //AudioManager.instance.PlayOneShot(AudioManager.instance.Success);
             }
             else if(l_TotalDistanceToPoint<=m_RythmPointController.m_GoodPointRange)
             {
@@ -86,7 +87,7 @@ public class PlayerController : MonoBehaviour
                 AddScore(m_RythmPointController.m_GoodPointScore);
                 m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
                 m_RythmPointController.IncreaseCurrentRythmPoint();
-                AudioManager.instance.PlayOneShot(AudioManager.instance.Success);
+                //AudioManager.instance.PlayOneShot(AudioManager.instance.Success);
             }
             else if(l_TotalDistanceToPoint<=m_RythmPointController.m_BadPointRange)
             {
@@ -94,7 +95,7 @@ public class PlayerController : MonoBehaviour
                 AddScore(m_RythmPointController.m_BadPointScore);
                 m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
                 m_RythmPointController.IncreaseCurrentRythmPoint();
-                AudioManager.instance.PlayOneShot(AudioManager.instance.Success);
+                //AudioManager.instance.PlayOneShot(AudioManager.instance.Success);
             }
             else if(l_TotalDistanceToPoint<=m_RythmPointController.m_MissPointRange)
             {
@@ -102,6 +103,7 @@ public class PlayerController : MonoBehaviour
                 m_RythmPointController.GetCurrentRythmPoint().DisablePoint();
                 m_RythmPointController.IncreaseCurrentRythmPoint();
                 AudioManager.instance.PlayOneShot(AudioManager.instance.Mistake);
+                m_Drac.StartCoroutine(m_Drac.MistakeAnimation());
             }
         }
     }
