@@ -31,7 +31,10 @@ public class CinematicsBehaviour : MonoBehaviour
     {
         image.sprite = _cinematic.GetSprite();
 
-        if(_cinematic.GetHasStringEvent())
+        if (_cinematic.GetHasDoorSlam())
+            AudioManager.instance.PlayOneShot(AudioManager.instance.DoorSlam);
+
+        if (_cinematic.GetHasStringEvent())
         {
             textBubble.OnDisplay(_cinematic.GetStringEvent());
             while(!textBubble.GetTextDisplayed())
@@ -55,8 +58,7 @@ public class CinematicsBehaviour : MonoBehaviour
             else
                 yield return new WaitForSeconds(_cinematic.GetTime());
         }
-
-        if(cinematicImages.Count - 1 > cinematicImages.IndexOf(_nextCinematic))
+        if (cinematicImages.Count - 1 > cinematicImages.IndexOf(_nextCinematic))
             StartCoroutine(ShowCinematic(_nextCinematic, cinematicImages[cinematicImages.IndexOf(_nextCinematic)+1]));
         else
         {

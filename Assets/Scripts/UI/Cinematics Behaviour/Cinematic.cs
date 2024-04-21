@@ -16,6 +16,7 @@ public class Cinematic : ScriptableObject
     [Header("Interaction")]
     [SerializeField] bool hasInteraction;
     [SerializeField] bool hasStringEvent;
+    [SerializeField] bool hasDoorSlam;
 
     public Sprite GetSprite() 
     { 
@@ -35,6 +36,11 @@ public class Cinematic : ScriptableObject
     public bool GetHasStringEvent()
     {
         return hasStringEvent;
+    }
+
+    public bool GetHasDoorSlam()
+    {
+        return hasDoorSlam;
     }
 
     public void SetStringEvent(string key)
