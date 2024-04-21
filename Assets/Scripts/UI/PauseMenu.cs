@@ -16,7 +16,6 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.instance.PlaySong(AudioManager.instance.inGameSong);
         _fade = GetComponent<FadePanel>();
         _fade.StartCoroutine(_fade.Fade(backgroundCanvas, 1, 0, 0, 0.01f));
         _fade.StartCoroutine(_fade.Fade(currentCanvas, 1, 0, 0, 0.01f));

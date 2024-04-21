@@ -56,9 +56,6 @@ public class GameManager : MonoBehaviour
             Instantiate(_santJordi, enemyPoint.position, enemyPoint.rotation);
         else 
             Instantiate(_princess, enemyPoint.position, enemyPoint.rotation);
-        
-        //EventInstance inGameSong = AudioManager.instance.CreateEventInstance(AudioManager.instance.InGameSong);
-        //AudioManager.instance.PlaySong(inGameSong);
     }
 
     [SerializeField] EnterExitScene enterExitScene;

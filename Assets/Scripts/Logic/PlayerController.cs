@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     float m_DirectionX;
     float m_MovementRange;
     float m_SongTimer;
+    bool m_StartSongTimer;
 
     [Header("Timer")]
     public TextMeshProUGUI m_TimerText;
@@ -39,35 +40,22 @@ public class PlayerController : MonoBehaviour
 	}
 	void Update()
     {
-        m_SongTimer+=Time.deltaTime;
+        if(m_StartSongTimer)
+        {
+            m_SongTimer+=Time.deltaTime;
 
-        Vector3 l_DancePointPos=m_DancePoint.localPosition;
-        l_DancePointPos.y=Mathf.Sin(m_SongTimer*m_YMovementSpeed)*m_MovementRange;
-        if(m_DirectionX<0.0f)
-            l_DancePointPos.x-=m_XMovementSpeed*Time.deltaTime;
-        else if(m_DirectionX>0.0f)
-            l_DancePointPos.x+=m_XMovementSpeed*Time.deltaTime;
-        l_DancePointPos.x=Mathf.Clamp(l_DancePointPos.x, 0.0f, m_PanelRight);
-        m_DancePoint.localPosition=l_DancePointPos;
+            Vector3 l_DancePointPos=m_DancePoint.localPosition;
+            l_DancePointPos.y=Mathf.Sin(m_SongTimer*m_YMovementSpeed)*m_MovementRange;
+            if(m_DirectionX<0.0f)
+                l_DancePointPos.x-=m_XMovementSpeed*Time.deltaTime;
+            else if(m_DirectionX>0.0f)
+                l_DancePointPos.x+=m_XMovementSpeed*Time.deltaTime;
+            l_DancePointPos.x=Mathf.Clamp(l_DancePointPos.x, 0.0f, m_PanelRight);
+            m_DancePoint.localPosition=l_DancePointPos;
         
-        m_TimerText.text=m_SongTimer.ToString();
-        
-        //Vector2 l_RythmPointPos=m_RythmPointController.GetCurrentRythmPoint().GetPosition();
-		//Vector2 l_PlayerPointPos=m_DancePoint.localPosition;
-		//Debug.Log("Point pos: "+l_RythmPointPos+" Player pos: "+l_PlayerPointPos+" DIstance: "+Vector2.Distance(l_RythmPointPos, l_PlayerPointPos));
-        
-        //float l_DistanceToPointY=Mathf.Abs(l_PlayerPointPos.y-l_RythmPointPos.y);
-        //float l_TotalDistanceToPoint=Vector2.Distance(l_RythmPointPos, l_PlayerPointPos);
-
-        //if(Input.GetKeyDown(KeyCode.Space))
-        //{
-		//	if(Vector2.Distance(l_RythmPointPos, l_PlayerPointPos)<=m_RythmPointController.m_MissRangeToInteract)
-        //  {
-        //    m_RythmPointController.GetCurrentRythmPoint().DisablePoint(true);
-        //    m_RythmPointController.IncreaseCurrentRythmPoint();
-        //  }
-		//}
-        m_RythmPointController.SetTimingCircles(m_SongTimer);
+            m_TimerText.text=m_SongTimer.ToString();
+            m_RythmPointController.SetTimingCircles(m_SongTimer);
+        }
     }
     public void MovePointXAxis(float Direction)
     {
@@ -132,5 +120,9 @@ public class PlayerController : MonoBehaviour
         m_CurrentScore+=Score;
         GameManager.instance.playerScore = m_CurrentScore;
         m_ScoreText.SetText(m_CurrentScore.ToString()+" - "+(m_CurrentScore/m_RythmPointController.GetMaxScore()*100.0f).ToString("#.00")+"%");
+    }
+    public void SetStartSong()
+    {
+        m_StartSongTimer=true;
     }
 }
