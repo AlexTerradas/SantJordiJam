@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1034020110659584
-    m_Localized: Princess! I challenge you to a Dance Battle!
+    m_Localized: I challenge you to a Dance Battle, Princess!
     m_Metadata:
       m_Items: []
   - m_Id: 1034430217121792
@@ -79,7 +79,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4737763148828672
-    m_Localized: Saint Jordi! I challenge you to a Dance Battle!
+    m_Localized: I challenge you to a Dance Battle, Saint Jordi!
     m_Metadata:
       m_Items: []
   references:
