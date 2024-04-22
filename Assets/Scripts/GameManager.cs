@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject _canvasWin;
     [SerializeField] private GameObject _canvasLose;
+    public Slider _currentSongProgressSlider;
 
     [SerializeField] private GameObject _princess;
     [SerializeField] private GameObject _santJordi;
@@ -73,6 +75,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartEndingState()
     {
+        _currentSongProgressSlider.maxValue=182.5f;
         yield return new WaitForSeconds(182.5f);
         gameState = GameState.Ending;
         onEndingState();
