@@ -143,6 +143,17 @@
                     "action": "PauseKey",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "af9c0434-762c-4f7e-8fc0-8230fbf411f4",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PauseKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
