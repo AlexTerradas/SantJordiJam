@@ -43,21 +43,25 @@ public class PlayerController : MonoBehaviour
 	}
 	void Update()
     {
-        if(m_StartSongTimer && !m_Finished)
+        if(m_StartSongTimer)
         {
             m_SongTimer+=Time.deltaTime;
+            GameManager.instance._currentSongProgressSlider.value=m_SongTimer;
 
-            Vector3 l_DancePointPos=m_DancePoint.localPosition;
-            l_DancePointPos.y=Mathf.Sin(m_SongTimer*m_YMovementSpeed)*m_MovementRange;
-            if(m_DirectionX<0.0f)
-                l_DancePointPos.x-=m_XMovementSpeed*Time.deltaTime;
-            else if(m_DirectionX>0.0f)
-                l_DancePointPos.x+=m_XMovementSpeed*Time.deltaTime;
-            l_DancePointPos.x=Mathf.Clamp(l_DancePointPos.x, 0.0f, m_PanelRight);
-            m_DancePoint.localPosition=l_DancePointPos;
+            if(!m_Finished)
+            {
+                Vector3 l_DancePointPos=m_DancePoint.localPosition;
+                l_DancePointPos.y=Mathf.Sin(m_SongTimer*m_YMovementSpeed)*m_MovementRange;
+                if(m_DirectionX<0.0f)
+                    l_DancePointPos.x-=m_XMovementSpeed*Time.deltaTime;
+                else if(m_DirectionX>0.0f)
+                    l_DancePointPos.x+=m_XMovementSpeed*Time.deltaTime;
+                l_DancePointPos.x=Mathf.Clamp(l_DancePointPos.x, 0.0f, m_PanelRight);
+                m_DancePoint.localPosition=l_DancePointPos;
         
-            m_TimerText.text=m_SongTimer.ToString();
-            m_RythmPointController.SetTimingCircles(m_SongTimer);
+                m_TimerText.text=m_SongTimer.ToString();
+                m_RythmPointController.SetTimingCircles(m_SongTimer);
+            }
         }
     }
     public void MovePointXAxis(float Direction)

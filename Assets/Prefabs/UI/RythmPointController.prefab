@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CompassDuration: 1.437126
-  m_StartDelay: 0.71
+  m_StartDelay: 0.5
   m_LimitOffset: 50
   m_MaxRandomRangeX: 150
   m_MaxDistanceY: 100

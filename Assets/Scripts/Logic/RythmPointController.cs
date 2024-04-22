@@ -110,6 +110,7 @@ public class RythmPointController : MonoBehaviour
         m_PlayerController.m_DancePoint.SetAsLastSibling();
         GameManager.instance.maxScore = m_MaxScore;
         GameManager.instance.scoreNeededToWin = m_ScoreNeeded;
+        GameManager.instance._currentSongProgressSlider.value=0.0f;
     }
     public RythmPoint GetPointByIndex(int Index)
     {
